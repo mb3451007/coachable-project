@@ -1,0 +1,92 @@
+@import '../core/styles/colors';
+@import '../core/styles/fonts';
+@import '../core/styles/screen-sizes.scss';
+
+.search-bar {
+    &__searchbar-box {
+        display: flex;
+        position: relative;
+        align-items: center;
+        border: 1px;
+        background-color: $background-off-white;
+        padding: 0.5rem 0.5rem;
+        border-radius: 2rem;
+    }
+    
+    &__searchbar-results {
+        background-color: $background-off-white;
+        margin-top: 0.75rem;
+        border-radius: 10px;
+        padding: 0.5rem;
+        width: calc(100% - 1rem);
+        left: 50%;
+        position: absolute;
+        top: 100%;
+        transform: translate(-50%, -0.5rem);
+        z-index: 100;
+    }
+    
+    &__result-entry {
+        margin-top: 0.5rem;
+        background-color: $background-off-white;
+        text-decoration: none;
+        color: $background-black;
+        width: 100%;
+        display: flex; 
+        flex-direction: row;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    &__result-entry:hover {
+        background-color: $background-off-white-hover;
+    }
+     
+    &__result-entry-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    &__result-entry-title {
+        margin: 0;
+        color: $text-on-white;
+    }
+    
+    &__result-entry-subtitle {
+        margin: 0;
+        color: $text-info;
+    }
+    
+    &__searchbar-icon {
+        font-weight: bold;
+        color: $background-black
+    }
+    
+    &__searchbar-input {
+        border: none;
+        background-color: inherit;
+        font-size: large;
+        margin-left: 0.25em;
+        width: calc(100% - 24px - 0.5rem);
+    }
+    
+    &__searchbar-input:focus {
+        outline: none;
+    }
+
+    &__search-image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
+    }
+
+    &__search-image {
+        max-width: 50px;
+        max-height: 50px;
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,5 @@
+<div *ngIf="(courses | async) as course_list">
+    <div class="d-flex justify-content-lg-center course-carousel__course-list">
+        <app-course-snippet *ngFor="let course of course_list" class="course-carousel__course" [course]="course"></app-course-snippet>
+    </div>
+</div>

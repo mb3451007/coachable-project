@@ -1,0 +1,86 @@
+@import 'core/styles/fonts';
+@import 'core/styles/colors';
+
+body {
+    background-color: $background-black;
+    margin: 0px;
+}
+
+h1 {
+    font-family: $primary-font;
+    font-weight: bold;
+    color: $text-normal;
+}
+
+h2 {
+    font-family: $primary-font;
+    font-weight: bold;
+    font-size: 32pt;
+    color: $text-normal;
+}
+
+h3 {
+    font-family: $primary-font;
+    font-weight: bold;
+    color: $text-normal;
+}
+
+h4 {
+    font-family: $primary-font;
+    font-weight: bold;
+    color: $text-normal;
+}
+
+p {
+    font-family: $primary-font;
+    color: $text-normal;
+}
+
+span {
+    font-family: $primary-font;
+    color: $text-normal;
+}
+
+button {
+    font-family: $secondary-font;
+    padding: 0.5rem 2rem;
+    font-size: medium;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    color: $background-black;
+    background-color: $highlight-orange;
+    border-radius: 2rem;
+}
+
+button:hover {
+    color: $text-normal;
+}
+
+.secondary-button {
+    padding: 0.5rem 2rem;
+    color: $link-muted;
+    font-size: medium;
+    // border: none;
+    cursor: pointer;
+    appearance: none;
+    border: 2px solid $highlight-orange;
+    outline-width: 1px;
+    background-color: inherit;
+    border-radius: 2rem;
+}
+
+.secondary-button:hover {
+    color: $background-black;
+    background-color: $highlight-orange;
+}
+
+input {
+    font-family: $primary-font;
+    font-weight: bold;
+}
+
+label {
+    font-family: $primary-font;
+    color: $text-normal;
+}

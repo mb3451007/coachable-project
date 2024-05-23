@@ -1,0 +1,58 @@
+@import '../core/styles/colors';
+@import '../core/styles/fonts';
+@import '../core/styles/screen-sizes.scss';
+@import '../core/styles/border-radii';
+
+
+.modal-body{
+    background-color: #120101;
+
+
+    &__form{
+        justify-content: center;
+    padding: 20%;
+    padding-top: 5%;
+    
+
+        
+    }
+    &__registration{
+        text-align: center;
+        color: whitesmoke;
+        // color: orange;
+    }
+    &__btn{
+        background-color: orange;
+        color: black;
+        width: 100%;
+
+    }
+    &__forget{
+        text-align: center;
+        color: whitesmoke;
+        padding-top: 5px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+    }
+    &__LinkBtn{
+        // color: black;
+        padding-top:15px ;
+        // padding-bottom: 15px;
+        border-radius: 1px  white;
+
+    }
+    
+    &__konto{
+        text-align: center;
+        color: whitesmoke;
+        padding: 18px;
+        font-size: xx-small;
+        font-weight: lighter;
+        border-top: 1px solid lightgray;
+    }
+        
+
+    
+
+}
+

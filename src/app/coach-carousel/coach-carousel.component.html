@@ -1,0 +1,3 @@
+<div *ngIf="(coaches | async) as coach_list" class="d-flex justify-content-lg-center coach-carousel__course-list">
+    <app-coach-snippet *ngFor="let coach of coach_list" [coach]="coach"></app-coach-snippet>
+</div>

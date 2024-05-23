@@ -1,0 +1,9 @@
+.search-page {
+    &__options-button {
+        cursor: pointer;
+    }
+
+    &__search-results {
+        min-height: 25rem;
+    }
+}

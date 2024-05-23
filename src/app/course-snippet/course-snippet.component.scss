@@ -1,0 +1,53 @@
+@import '../core/styles/colors';
+@import '../core/styles/fonts';
+@import '../core/styles/border-radii';
+
+.course-snippet {
+    &__wrapper {
+        cursor: pointer;
+        background-color: $background-dark-grey;
+        border-radius:  $medium-curve;
+        width: 250px;
+        height: 335px;
+    }
+
+    &__details-wrapper {
+        padding: 0.75rem;
+        width: 250px;
+        height: 295px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 120px;
+        margin-bottom: 0.75rem;
+        object-fit: cover;
+        border-radius: $small-curve $small-curve 0 0;
+    }    
+
+    &__title {
+        height: 40px;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
+        font-size: smaller;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }     
+
+    &__category {
+        margin: 0 0 0 0.3rem;    
+        font-size: small;
+    }    
+
+    &__price-wrapper {
+        padding: 0 1rem 1rem 1rem;
+        width: 250px;
+        height: 40px;
+    }
+
+    &__price-details {
+        font-size: small;
+    } 
+}

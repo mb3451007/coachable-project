@@ -1,0 +1,7 @@
+{
+"/api": {
+"target": "http://coachable-backend-env.eba-mtutg33x.eu-central-1.elasticbeanstalk.com:5000",
+"secure": false,
+"changeOrigin": true
+}
+}

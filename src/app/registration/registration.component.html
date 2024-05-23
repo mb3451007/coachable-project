@@ -1,0 +1,50 @@
+<!-- registration here -->
+
+<div class="modal fade" id="SignUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div>
+
+        <div class="modal-body">
+          <form class="modal-body__form" #registerForm="ngForm">
+            <legend class="modal-body__registration">Bei Coachable registrieren </legend>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">E-Mail-Adresse</label>
+              <input type="email" class=" form-control border border-1 "
+                style="width: 100%; background-color: black;color: whitesmoke;"
+                placeholder="E-Mail-Adresse" ngModel name="email" #email="ngModel"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+
+
+            <button type="submit" class="modal-body__btn" (click)="doSomeThing(registerForm)">Weiter</button>
+            <!-- <button type="button" class="btn btn-primary" >Save changes</button> -->
+
+            <legend class="modal-body__forget">Other</legend>
+
+            <div style="padding-bottom: 25px;">
+              <div class="modal-body__LinkBtn">
+                <button class="border border-1 " style="width: 100%; background-color: black;color: whitesmoke;"
+                  type="button">Connect with Google</button>
+              </div>
+              <div class="modal-body__LinkBtn">
+
+                <button class="border border-1 "
+                  style="width: 100%; background-color: black;color: whitesmoke; border-bottom: 1px solid lightgray;"
+                  type="button">Connect with Apple</button>
+              </div>
+            </div>
+
+            <legend class="modal-body__konto">Du hast bereits ein Konto? <a href="#">Hier zur Anmledung</a></legend>
+            <!-- <div><span class="modal-body__radius"> <a href="#">jetzt bei</a></span></div> -->
+
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="doSomeThing()">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>

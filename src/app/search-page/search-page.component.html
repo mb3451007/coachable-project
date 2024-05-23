@@ -1,0 +1,24 @@
+<div class="container-lg">
+  <div class="d-flex justify-content-between p-4">
+    <img class="search-page__options-button" (click)="openSettings()" src="assets/images/icons/settings-icon.svg">
+    <div class="d-flex">
+      <label class="pe-2">Kurs</label>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="switchSearchMode()" #searchMode>
+        <label class="form-check-label" for="flexSwitchCheckDefault">Coach</label>
+      </div>
+    </div>
+  </div>
+  <app-search-bar class="homepage__searchbar" (coachClicked)="openCoachUrl($event)" (courseClicked)="openCourseUrl($event)" (resultsRetrieved)="showSearchbarResults($event)"
+    [searchType]="searchType" [displayType]="displayType" [placeholder]="searchParams"></app-search-bar>
+</div>
+<div class="container p-3 search-page__search-results">
+  <div *ngIf="searchResults && (searchResults.coachResult || searchResults.courseResult)" class="row">
+    <app-course-snippet class="col m-2" *ngFor="let course of searchResults.courseResult" [course]="course"></app-course-snippet>
+    <app-coach-snippet class="col m-2" *ngFor="let coach of searchResults.coachResult" [coach]="coach"></app-coach-snippet>
+  </div>
+  <p *ngIf="!searchResults || (!searchResults.coachResult && !searchResults.courseResult)" class="text-center mt-3 p-3">
+    Keine Ergebnisse
+  </p>
+</div>
+

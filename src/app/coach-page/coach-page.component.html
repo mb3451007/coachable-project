@@ -1,0 +1,44 @@
+<div class="container-lg">
+    <div class="coach-page__image-wrapper">
+        <img class="coach-page__header-background-image" src="assets/images/stage.jpg">
+        <img class="coach-page__coach-image" onerror="this.src='assets/images/coach-placeholder.svg'" src={{coach.profilePictureLink}}>
+    </div>
+    <div class="d-flex justify-content-between coach-page__name-wrapper">
+        <div class="m-4">
+            <h1>{{coach.firstName}} {{coach.lastName}}</h1>
+            <p>{{coach.companyName}}<br>{{coach.city}} {{coach.country}}</p>
+        </div>
+    </div>
+    <div class="coach-page__slogan"><p class="m-0">"Der Coach Slogan kommt hier hin. Der wird richtig inspirierend sein! Den sieht man sehr gut weil er zentral und in italic ist."</p></div>
+</div>
+
+<div *ngIf="(courses | async) as course_list">
+    <div *ngIf="course_list.length > 0" class="container-lg py-5">
+        <h2 class="coach-page__course-section-title">{{course_list.length}} Kurse</h2>
+        <div *ngIf="categories.length > 0" class="d-flex justify-content-lg-center my-3 coach-page__category-list">
+            <div *ngFor="let category of categories" class="mx-1 px-2 py-1 coach-page__category-select">
+                {{category}}
+            </div>
+        </div>
+        <app-course-carousel [courses]="courses"></app-course-carousel>
+    </div>
+</div>
+
+
+<div class="container-lg my-4 px-4">
+    <h3 class="mb-3">Über {{coach.firstName}} {{coach.lastName}}</h3>
+    <p>{{coach.biography}}</p>
+    <button>Zur Coach Website</button>
+</div>
+
+<div *ngIf="(coaches | async) as coach_list" class="container-lg text-center my-5">
+    <h2 class="mb-3 coach-page__course-section-title">Ähnliche Coaches</h2>
+    <app-coach-carousel [coaches]="coaches"></app-coach-carousel>
+</div>
+
+<div *ngIf="(courses | async) as course_list">
+    <div *ngIf="course_list.length > 0" class="container-lg py-5">
+        <h2 class="coach-page__course-section-title">Weitere Kurse</h2>
+        <app-course-carousel [courses]="courses"></app-course-carousel>
+    </div>
+</div>

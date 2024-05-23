@@ -1,0 +1,15 @@
+.course-carousel {
+    &__course-list {
+        overflow-x: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    
+    &__course-list::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+    }
+    
+    &__course {
+        margin: 0.75rem;
+    }
+}
