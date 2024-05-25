@@ -33,6 +33,11 @@ import {FormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
+import { SeminarPageComponent } from './seminar-page/seminar-page.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatIconModule} from '@angular/material/icon';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +60,8 @@ import { LoginComponent } from './login/login.component';
     TermsAndConditionsComponent,
     DataProtectionComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    SeminarPageComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +76,10 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     MatRadioModule,
     MatCardModule,
+    MatProgressBarModule,
+    MatIconModule,
+    FontAwesomeModule,
+    
     
 
 

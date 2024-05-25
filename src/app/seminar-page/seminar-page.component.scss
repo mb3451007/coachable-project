@@ -1,0 +1,150 @@
+@import "../core/styles/colors";
+@import "../core/styles/fonts";
+@import "../core/styles/screen-sizes.scss";
+@import "../core/styles/border-radii";
+
+.main-seminar {
+  &__container {
+    margin: 3%;
+    color: #ffffff;
+  }
+
+  &__searchArea {
+    padding: 0.3rem 2rem;
+    display: flex;
+    flex-direction: row;
+    background-color: $background-black;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__side {
+    padding: 0.3rem 2rem;
+
+    background-color: $background-black;
+
+    position: relative;
+    max-width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  &__leftSide {
+    position: relative;
+    background: #121212;
+    color: #ffffff;
+    padding: 3%;
+  }
+  &__preissPanne {
+    padding: 20px 0px 20px 0px;
+  }
+  &__RatingStars {
+    text-align: center;
+  }
+  &__star {
+    margin: 2%;
+  }
+
+  &__rightSide {
+    position: relative;
+    margin-left: 2%;
+    background-color: $background-black;
+
+    color: #ffffff;
+    padding: 3%;
+  }
+  &__Option {
+    padding: 20px;
+
+    position: relative;
+    top: 0;
+    left: 5px;
+  }
+  &__button {
+    position: absolute;
+    padding-top: 40px;
+    top: 0;
+    right: 5px;
+  }
+  &__newSeminar {
+    background: #121212;
+  }
+}
+
+.leftBtn {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 26px;
+  background: antiquewhite;
+  margin: 2px;
+  width: 90px;
+  padding-top: 1px;
+  padding-right: 1px;
+}
+.rightBtn {
+
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 26px;
+  background: antiquewhite;
+//   margin: 2px;
+  width: 90px;
+  padding-top: 1px;
+  padding-right: 1px;
+}
+
+.checked {
+  color: orange;
+}
+#Bewertet {
+  width: 152px;
+  height: 23px;
+  border-radius: 10px;
+}
+.progress-container {
+  position: relative;
+}
+
+.progress-bar {
+  position: relative;
+  top: 0;
+  left: 0;
+  color: whitesmoke;
+}
+.label-left {
+  position: relative;
+  top: 0;
+  left: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.label-right {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.example-card {
+  max-width: 400px;
+  margin-bottom: 8px;
+  margin: 4%;
+  background-color: #a8a8a8;
+  justify-content: space-around;
+}
+
+.serviceCard {
+  position: relative;
+  width: 100%;
+  padding: 17px;
+  min-height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+}

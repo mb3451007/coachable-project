@@ -10,6 +10,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { DataProtectionComponent } from './data-protection/data-protection.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { SeminarPageComponent } from './seminar-page/seminar-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'impressum', component: ImpressumComponent },
   { path: 'agbs', component: TermsAndConditionsComponent },
   { path: 'datenschutz', component: DataProtectionComponent },
-  {path:'registration',component:RegistrationComponent}
+  {path:'registration',component:RegistrationComponent},
+  {path:'seminar',component:SeminarPageComponent}
 ];
 
 @NgModule({
