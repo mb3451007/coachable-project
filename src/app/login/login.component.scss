@@ -5,7 +5,7 @@
 
 
 .modal-body{
-    background-color: #120101;
+    background-color: #0F0F0F;
 
 
     &__form{
@@ -23,7 +23,7 @@
     }
     &__btn{
         background-color: orange;
-        color: black;
+        color: #0F0F0F;
         width: 100%;
 
     }
@@ -46,8 +46,8 @@
         text-align: center;
         color: whitesmoke;
         padding: 18px;
-        font-size: xx-small;
-        font-weight: lighter;
+        font-size: 9px;
+        font-weight: 900;
         border-top: 1px solid lightgray;
     }
         
@@ -55,4 +55,5 @@
     
 
 }
+
 

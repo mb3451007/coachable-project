@@ -5,11 +5,11 @@
 
         <div class="modal-body">
           <form class="modal-body__form" #loginForm="ngForm">
-            <legend class="modal-body__registration">Als Coachable anmelden </legend>
+            <legend class="modal-body__registration"><b>Als Coach anmelden</b> </legend>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">E-Mail-Adresse oder Benutzername</label>
               <input type="email" class=" form-control border border-1 "
-                style="width: 100%; background-color: black;color: whitesmoke;"
+                style="width: 100%; background-color: #0F0F0F;color: whitesmoke;"
                 placeholder="E-Mail-Adresse oder Benutzername" ngModel name="email" #email="ngModel"
                 id="exampleInputEmail1" aria-describedby="emailHelp">
 
@@ -17,35 +17,43 @@
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">passwort</label>
               <input type="password" class=" form-control border border-1 "
-                style="width: 100%; background-color: black;color: whitesmoke;" ngModel name="passwort"
+                style="width: 100%; background-color: #0F0F0F;color: whitesmoke;" ngModel name="passwort"
                 #password="ngModel" placeholder="passwort" id="exampleInputPassword1">
 
             </div>
             <div class="mb-3">
               <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <input class="form-check-input"
+                  style="background-color: orange;color: orange;border-radius: 2px solid orange;" type="checkbox"
+                  role="switch" id="flexSwitchCheckChecked">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Benutzername speichern</label>
               </div>
             </div>
-            <button type="submit" class="modal-body__btn" (click)="loginHere(loginForm)">Submit</button>
+            <button type="submit" class="modal-body__btn" (click)="loginHere(loginForm)">Anmleden</button>
             <!-- <button type="button" class="btn btn-primary" >Save changes</button> -->
 
-            <legend class="modal-body__forget">Forget Passward?</legend>
+            <legend class="modal-body__forget">Passwort vergessen?</legend>
 
             <div style="padding-bottom: 25px;">
               <div class="modal-body__LinkBtn">
-                <button class="border border-1 " style="width: 100%; background-color: black;color: whitesmoke;"
-                  type="button">Connect with Google</button>
+                <button class="border border-1 " style="width: 100%; background-color: #0F0F0F;color: whitesmoke;"
+                  type="button">
+                  <i class="fab fa-google" id="google" style="padding-right: 28px; color: #EA4335;"></i>
+                  Weiter mit Google
+                </button>
               </div>
               <div class="modal-body__LinkBtn">
 
                 <button class="border border-1 "
-                  style="width: 100%; background-color: black;color: whitesmoke; border-bottom: 1px solid lightgray;"
-                  type="button">Connect with Apple</button>
+                  style="width: 100%; background-color: #0F0F0F;color: whitesmoke; border-bottom: 1px solid lightgray;"
+                  type="button">
+                  <i class="fab fa-apple" style="padding-right: 28px; color: whitesmoke;"></i>
+                  Weiter mit Apple</button>
               </div>
             </div>
 
-            <legend class="modal-body__konto">Du hast noch Konto? <a href="#">jetzt bei coachable registrieren</a>
+            <legend class="modal-body__konto">Du hast noch Konto? <a href="#" style="color: whitesmoke;">jetzt bei
+                coachable registrieren</a>
             </legend>
             <!-- <div><span class="modal-body__radius"> <a href="#">jetzt bei</a></span></div> -->
 

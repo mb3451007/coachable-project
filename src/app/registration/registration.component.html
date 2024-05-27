@@ -3,7 +3,7 @@
 <div class="modal fade" id="SignUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div>
+      <!-- <div> -->
 
         <div class="modal-body">
           <form class="modal-body__form" #registerForm="ngForm">
@@ -11,40 +11,40 @@
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">E-Mail-Adresse</label>
               <input type="email" class=" form-control border border-1 "
-                style="width: 100%; background-color: black;color: whitesmoke;"
-                placeholder="E-Mail-Adresse" ngModel name="email" #email="ngModel"
-                id="exampleInputEmail1" aria-describedby="emailHelp">
+                style="width: 100%; background-color: #0F0F0F;color: whitesmoke;" placeholder="E-Mail-Adresse" ngModel
+                name="email" #email="ngModel" id="exampleInputEmail1" aria-describedby="emailHelp">
 
             </div>
 
 
             <button type="submit" class="modal-body__btn" (click)="doSomeThing(registerForm)">Weiter</button>
-            <!-- <button type="button" class="btn btn-primary" >Save changes</button> -->
-
-            <legend class="modal-body__forget">Other</legend>
+            <legend class="modal-body__forget">___________Other___________</legend>
 
             <div style="padding-bottom: 25px;">
               <div class="modal-body__LinkBtn">
-                <button class="border border-1 " style="width: 100%; background-color: black;color: whitesmoke;"
-                  type="button">Connect with Google</button>
+                <button class="border border-1 " style="width: 100%; background-color: #0F0F0F;color: whitesmoke;"
+                  type="button">
+                  <i class="fab fa-google" id="google" style="padding-right: 28px; color: #EA4335;"></i>
+                  Weiter mit Google</button>
               </div>
               <div class="modal-body__LinkBtn">
 
                 <button class="border border-1 "
-                  style="width: 100%; background-color: black;color: whitesmoke; border-bottom: 1px solid lightgray;"
-                  type="button">Connect with Apple</button>
+                  style="width: 100%; background-color: #0F0F0F;color: whitesmoke; border-bottom: 1px solid lightgray;"
+                  type="button">
+                  <i class="fab fa-apple" style="padding-right: 28px; color: whitesmoke;"></i>
+                  Weiter mit Apple</button>
               </div>
             </div>
 
-            <legend class="modal-body__konto">Du hast bereits ein Konto? <a href="#">Hier zur Anmledung</a></legend>
-            <!-- <div><span class="modal-body__radius"> <a href="#">jetzt bei</a></span></div> -->
-
+            <legend class="modal-body__konto">Du hast bereits ein Konto? <a href="#" style="color: whitesmoke;">Hier zur
+                Anmledung</a></legend>
+            <legend class="modal-body__forgetRegis">Du bist Coach und willst dich registrieren? <a href="#"
+                style="color: orange;">Klicke hier</a></legend>
           </form>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="doSomeThing()">Save changes</button>
-        </div> -->
-      </div>
+
+      <!-- </div> -->
     </div>
   </div>
+</div>

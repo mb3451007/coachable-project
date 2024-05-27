@@ -5,7 +5,8 @@
 
 
 .modal-body{
-    background-color: #120101;
+    background-color: #0F0F0F;
+    
 
 
     &__form{
@@ -23,21 +24,19 @@
     }
     &__btn{
         background-color: orange;
-        color: black;
+        color: #0F0F0F;
         width: 100%;
 
     }
     &__forget{
         text-align: center;
         color: whitesmoke;
-        padding-top: 5px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid lightgray;
+        max-width: 100%;
+        padding-top: 20px;
+        padding-bottom: 5px;
     }
     &__LinkBtn{
-        // color: black;
         padding-top:15px ;
-        // padding-bottom: 15px;
         border-radius: 1px  white;
 
     }
@@ -46,13 +45,22 @@
         text-align: center;
         color: whitesmoke;
         padding: 18px;
-        font-size: xx-small;
-        font-weight: lighter;
+        font-size: 9px;
+        font-weight: 900;
         border-top: 1px solid lightgray;
+    }
+    &__forgetRegis{
+        text-align: center;
+        color: orange;
+        padding: 18px;
+        font-size: 9px;
+        font-weight: 900;
     }
         
 
     
 
 }
+
+
 

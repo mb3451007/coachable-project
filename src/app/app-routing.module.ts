@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: 'impressum', component: ImpressumComponent },
   { path: 'agbs', component: TermsAndConditionsComponent },
   { path: 'datenschutz', component: DataProtectionComponent },
-  {path:'registration',component:RegistrationComponent},
   {path:'seminar',component:SeminarPageComponent}
 ];
 
