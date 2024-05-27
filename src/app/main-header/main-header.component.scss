@@ -42,9 +42,12 @@
 
   &__button {
     cursor: pointer;
-    width: 30px;
+    width: 20px;
+    margin-right: 10px;
     background-color: black;
   }
+  
+
   &__Userlogo {
     font-family: BarlowCondensed;
     padding: 0.5rem 2rem;
@@ -97,9 +100,9 @@
     -webkit-appearance: none;
     appearance: none;
     color: black;
-    background-color: orange;
+    background-color: #F17B19;
     border-radius: 2rem;
-    border: 2px solid #ff8c00;
+    border: 2px solid  #F17B19;
   }
 }
 #searchBar {
