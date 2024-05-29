@@ -73,6 +73,9 @@ input::placeholder {
 
   border-radius: 6px;
   overflow: hidden;
+  img {
+    padding-right: 8px;
+  }
 }
 .inputField {
   padding: 6px;
@@ -80,4 +83,18 @@ input::placeholder {
   color: whitesmoke;
   border: none;
   outline: none;
+}
+
+::ng-deep {
+  .form-switch .form-check-input:checked {
+    --bs-form-switch-bg: url('../../assets/images/btn-toggle.png') !important;
+  }
+  .form-switch .form-check-input {
+    --bs-form-switch-bg: url('../../assets/images/btn-toggle.png') !important;
+  }
+}
+
+.form-check-input {
+  background-color: black;
+  border: 2px solid #F17B19;
 }

@@ -120,13 +120,17 @@
   outline: none;
 }
 .dropdown-menu{
-  margin-top: 19px;
+  margin-top: 19px !important;
   position: absolute;
   transform: translate3d(1010.5px, 43.5px, 0px);
   border: 2px solid #ff8c00;
   padding: 11px;
   border-radius: 18px;
   background-color: black;
+
+  li {
+    padding: 10px 0;
+  }
 }
 .dropdown-list {
   display: block;
