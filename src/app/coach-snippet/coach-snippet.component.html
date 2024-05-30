@@ -1,0 +1,4 @@
+<div class="coach-snippet__wrapper" (click)="openCoachUrl(coach)">
+    <img class="coach-snippet__image" onerror="this.src='assets/images/coach-placeholder.svg'" src={{coach.profilePictureLink}}>
+    <h3 class="coach-snippet__title">{{coach.firstName}} {{coach.lastName}}</h3>
+</div>

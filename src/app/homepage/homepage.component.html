@@ -1,0 +1,122 @@
+<div class="container d-flex flex-column justify-content-center align-items-center homepage__searchbar-section">
+    <img class="homepage__searchbar-logo" src="assets/images/icons/coachable-full-logo.svg">
+    <app-search-bar class="homepage__searchbar" (coachClicked)="openCoachUrl($event)" (courseClicked)="openCourseUrl($event)" (enterPressed)="openSearchPage($event)"
+     [searchType]="searchType"></app-search-bar>
+</div>
+
+<div class="container-lg text-center homepage__category-section">
+    <h2 class="homepage__category-section-title">Kategorien</h2>
+    <div class="homepage__category-container">
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/business-category.jpg">
+            <h3 class="homepage__category-title">Business & Karriere</h3>
+        </div>  
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/technology-category.jpg">
+            <h3 class="homepage__category-title">Computer & Internet</h3>
+        </div>
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/communication-category.jpg">
+            <h3 class="homepage__category-title">Kommunikation & Beziehungen</h3>
+        </div>
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/finance-category.jpg">
+            <h3 class="homepage__category-title">Börse & Geld</h3>
+        </div>
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/arts-category.jpg">
+            <h3 class="homepage__category-title">Design, Film & Kunst</h3>
+        </div>
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/esotericism-category.jpg">
+            <h3 class="homepage__category-title">Esoterik</h3>
+        </div>
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/hobby-home-category.jpg">
+            <h3 class="homepage__category-title">Freizeit, Haus & Garten</h3>
+        </div>
+        <div class="homepage__category-link">
+            <img class="homepage__category-image" src="assets/images/self-care-category.jpg">
+            <h3 class="homepage__category-title">Ernährung & Gesundheit</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-lg homepage__tutorial-section">
+    <h2 class="homepage__category-section-title">Vergleiche Kurse</h2>
+    <div class="homepage__tutorial-container">
+        <div class="row">
+            <div class="col text-center homepage__tutorial-step">
+                <img class="homepage__tutorial-step-image" src="assets/images/tutorial1.png">
+                <p class="homepage__tutorial-step-headline">Suchen</p>
+                <p class="homepage__tutorial-step-text">Suchen Sie gezielt nach Online-Kursen, Mentoren und Coaches oder finden Sie neue Kurse, die Sie bisher noch nicht kannten.</p>
+            </div>
+            <div class="col text-center homepage__tutorial-step">
+                <img class="homepage__tutorial-step-image" src="assets/images/tutorial2.png">
+                <p class="homepage__tutorial-step-headline">Vergleichen</p>
+                <p class="homepage__tutorial-step-text">Nutzen Sie die Möglichkeit auf unserer besonders dafür angefertigten Seite verschiedene Kurse miteinander zu vergleichen.</p>
+            </div>
+            <div class="col text-center homepage__tutorial-step">
+                <img class="homepage__tutorial-step-image" src="assets/images/tutorial3.png">
+                <p class="homepage__tutorial-step-headline">Auswählen</p>
+                <p class="homepage__tutorial-step-text">Sie haben sich für einen Kursanbieter entschieden, der Ihre Bedürfnisse erfüllen kann? Dann ist es nun an der Zeit durchzustarten!</p>
+            </div>
+            <div class="col text-center homepage__tutorial-step">
+                <img class="homepage__tutorial-step-image" src="assets/images/tutorial4.png">
+                <p class="homepage__tutorial-step-headline">Weiterbilden</p>
+                <p class="homepage__tutorial-step-text">Weiterentwicklung mit dem für Sie optimalen Kurs. Ganz einfach und schnell gefunden auf coach-able.de.</p>
+            </div>
+        </div>
+        <button class="homepage__tutorial-button" (click)="openComparisonPage();">Zum Vergleich</button>
+    </div>
+</div>    
+
+<div *ngIf="(coaches | async) as coach_list" class="container-lg text-center homepage__coach-section">
+    <h2 class="homepage__category-section-title">Top Coaches</h2>
+    <!-- <span *ngIf="coach_list.length > 3" class="homepage__coach-arrow homepage__coach-arrow-left material-symbols-rounded">chevron_left</span> -->
+    <div class="d-flex justify-content-lg-center homepage__coach-list">
+        <app-coach-snippet *ngFor="let coach of coach_list" [coach]="coach"></app-coach-snippet>
+    </div>
+    <!-- <span *ngIf="coach_list.length > 3" class="homepage__coach-arrow homepage__coach-arrow-right material-symbols-rounded">chevron_right</span> -->
+</div>
+
+<div class="container-lg text-center">
+    <h2 class="homepage__category-section-title">Was ist Coachable?</h2>
+    <div class="row align-items-center">
+        <div class="col homepage__info-card">
+            <div class="homepage__info-card-title-row">
+                <img src="assets/images/icons/circle-play.svg">
+                <p class="homepage__info-card-title">Was ist Coachable?</p>
+            </div>
+            <p>
+                Suchst du nach dem Schlüssel zur persönlichen Entwicklung und beruflichem Wachstum?
+                Willkommen bei Coachable! Entdecke inspirierende Kurse, finde deinen Weg zum Erfolg und werde Teil unserer Community. 
+                Bist du bereit, dein Potenzial zu entfalten?
+            </p>
+        </div>
+        <div class="col homepage__info-card">
+            <div class="homepage__info-card-title-row">
+                <img src="assets/images/icons/filter-icon.svg">
+                <p class="homepage__info-card-title">Vergleiche Kurse</p>
+            </div>
+            <p>
+                Bei Coachable verstehen wir, dass jeder Lernweg einzigartig ist. 
+                Deshalb haben wir eine benutzerfreundliche Plattform geschaffen, auf der Sie mühelos Online-Kurse vergleichen können, 
+                die perfekt zu Ihren individuellen Bedürfnissen und Zielen passen. 
+                Starten Sie heute Ihre Reise mit der Hilfe von Coachable und entfalten Sie Ihr volles Potenzial!
+            </p>
+        </div>
+        <div class="col homepage__info-card">
+            <div class="homepage__info-card-title-row">
+                <img src="assets/images/icons/euro-icon.svg">
+                <p class="homepage__info-card-title">Preisgarantie</p>
+            </div>
+            <p>
+                Wir sind stolz darauf, Ihnen nicht nur qualitativ hochwertige Online-Kurse anzubieten, sondern auch die besten Preise im Markt. 
+                Unsere Niedrig-Preis-Garantie* ist ein Versprechen an Sie: 
+                Wenn Sie einen Kurs, den Sie bei uns gekauft haben, innerhalb von 30 Tagen woanders billiger finden, erstatten wir Ihnen die Preisdifferenz in drei einfachen Schritten. 
+                Klicken Sie <a>hier</a> einen niedrigeren Preis zu melden. 
+            </p>
+        </div>
+    </div>
+</div>

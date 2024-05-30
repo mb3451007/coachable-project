@@ -1,0 +1,73 @@
+<div class="modal fade" id="LoginForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- <div> -->
+
+        <div class="modal-body">
+          <form class="modal-body__form" #loginForm="ngForm">
+            <legend class="modal-body__registration"><b>Bie Coachable anmleden</b> </legend>
+            <div class="mb-3 emailHeading">
+              <label for="exampleInputEmail1" class="form-label ">E-Mail-Adresse oder Benutzername</label>
+              <input type="email" class=" form-control border border-1 "
+                style="width: 100%; background-color: #0F0F0F;color: whitesmoke;"
+                placeholder="E-Mail-Adresse oder Benutzername" ngModel name="email" #email="ngModel"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+            <label for="exampleInputPassword1" class="form-label emailHeading">Passwort</label>
+            <div class=" border border-1 passwordInPut">
+              <input type="password" class="form-control  inputField "
+              style="width: 100%; background-color: #0F0F0F;color: whitesmoke;" ngModel name="passwort"
+              #password="ngModel" placeholder="passwort" id="exampleInputPassword1">
+              <img src="assets/images/icons/Sichtbar.svg" alt="">
+
+            </div>
+            <div class="mb-3 emailHeading">
+              <div class="form-check form-switch">
+                <input class="form-check-input"
+                   type="checkbox"
+                  role="switch" id="flexSwitchCheckChecked" checked>
+
+                <label class="form-check-label" for="flexSwitchCheckChecked">Benutzername speichern</label>
+              </div>
+            </div>
+            <button type="submit" class="modal-body__btn " (click)="loginHere(loginForm)">Anmleden</button>
+            <!-- <button type="button" class="btn btn-primary" >Save changes</button> -->
+
+            <span class="modal-body__forget">Passwort vergessen?</span>
+            <hr style="width: 100%;color: whitesmoke;">
+
+            <div >
+              <div >
+        
+                <button class="border border-1 modal-body__LinkBtn " style=" background-color: #0F0F0F;color: whitesmoke; margin-bottom: 4%;"
+                  type="button">
+                  <img class="modal-body__button" aria-expanded="false"  src="assets/images/icons/google-icon.svg"  alt="notFound" srcset="">
+                  Weiter mit Google
+                </button>
+              </div>
+              <div>
+
+                <button class="border border-1 modal-body__LinkBtn"
+                  style=" background-color: #0F0F0F;color: whitesmoke; "
+                  type="button">
+                  <img class="modal-body__button" aria-expanded="false"  src="assets/images/icons/Apple.svg"  alt="notFound" srcset="">
+                  Weiter mit Apple</button>
+              </div>
+            </div>
+            <hr style="width: 100%;color: whitesmoke;">
+
+            <legend class="modal-body__konto">Du hast noch Konto? <a href="#" style="color: whitesmoke;">jetzt bei
+                coachable registrieren</a>
+            </legend>
+            <!-- <div><span class="modal-body__radius"> <a href="#">jetzt bei</a></span></div> -->
+
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="doSomeThing()">Save changes</button>
+        </div> -->
+      <!-- </div> -->
+    </div>
+  </div>

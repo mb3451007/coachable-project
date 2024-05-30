@@ -1,0 +1,100 @@
+@import "../core/styles/colors";
+@import "../core/styles/fonts";
+@import "../core/styles/screen-sizes.scss";
+@import "../core/styles/border-radii";
+
+.modal-body {
+  background-color: #0f0f0f;
+  max-width: 500px;
+
+  &__form {
+    justify-content: center;
+    padding: 7%;
+    padding-top: 5%;
+  }
+  &__registration {
+    text-align: center;
+    color: whitesmoke;
+  }
+  &__btn {
+    background-color: #f17b19;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #0f0f0f;
+    width: 65%;
+    margin-left: 17%;
+  }
+  &__forget {
+    color: whitesmoke;
+    padding-top: 5px;
+    padding: 15px;
+    margin-left: 30%;
+    padding-bottom: 20px;
+    font-weight: 400;
+  }
+  &__LinkBtn {
+    border-radius: 1px white;
+    width: 65%;
+    margin-left: 17%;
+  }
+
+  &__konto {
+    text-align: center;
+    color: whitesmoke;
+    padding: 18px;
+    font-size: 9px;
+    font-weight: 400;
+  }
+  &__button {
+    cursor: pointer;
+    width: 30px;
+    margin-right: 20px;
+    background-color: black;
+    padding-bottom: 3px;
+  }
+}
+.checked {
+  color: #f17b19;
+}
+.emailHeading {
+  width: 65%;
+  margin-left: 17%;
+}
+input::placeholder {
+  color: whitesmoke; /* Change placeholder color here */
+}
+
+.passwordInPut {
+  width: 65%;
+  margin-left: 17%;
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  margin-bottom: 15px;
+
+  border-radius: 6px;
+  overflow: hidden;
+  img {
+    padding-right: 8px;
+  }
+}
+.inputField {
+  padding: 6px;
+  background-color: #0f0f0f;
+  color: whitesmoke;
+  border: none;
+  outline: none;
+}
+
+::ng-deep {
+  .form-switch .form-check-input:checked {
+    --bs-form-switch-bg: url('../../assets/images/btn-toggle.png') !important;
+  }
+  .form-switch .form-check-input {
+    --bs-form-switch-bg: url('../../assets/images/btn-toggle.png') !important;
+  }
+}
+
+.form-check-input {
+  background-color: black;
+  border: 2px solid #F17B19;
+}

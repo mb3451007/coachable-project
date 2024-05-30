@@ -1,0 +1,38 @@
+<div class="course-snippet__wrapper" (click)="openCourseUrl(course)">
+    <div class="course-snippet__details-wrapper">
+        <div class="row gx-0">
+            <img class="course-snippet__image" src={{course.thumbnailLink}}>
+            <p class="col-12 course-snippet__title">{{course.name}}</p>
+            <div *ngIf="getLanguage()" class="col-6 mb-2 d-flex align-items-center">
+                <img src="assets/images/icons/internet-icon.svg"> 
+                <p class="course-snippet__category">{{getLanguage()}}</p>
+            </div>
+            <div *ngIf="course.accessInMonths && course.accessInMonths > 0" class="col-6 mb-2 d-flex align-items-center">
+                <img src="assets/images/icons/duration-icon.svg"> 
+                <p class="course-snippet__category">{{getAvailabilityText()}}</p>
+            </div>
+            <div *ngIf="course.hasDirectMessages || course.hasPhonecalls" class="col-6 mb-2 d-flex align-items-center">
+                <img src="assets/images/icons/support-icon.svg"> 
+                <p class="course-snippet__category">mit Support</p>
+            </div>
+            <div *ngIf="course.hoursOfVideos && course.hoursOfVideos > 0" class="col-6 mb-2 d-flex align-items-center">
+                <img src="assets/images/icons/video-icon.svg"> 
+                <p class="course-snippet__category">{{course.hoursOfVideos}}h Videos</p>
+            </div>
+            <div *ngIf="course.certificate" class="col-6 mb-2 d-flex align-items-center">
+                <img src="assets/images/icons/certificate-icon.svg"> 
+                <p class="course-snippet__category">mit Zertifikat</p>
+            </div>
+            <div *ngIf="course.numberOfVideos && course.numberOfVideos > 0" class="col-6 mb-2 d-flex align-items-center">
+                <img src="assets/images/icons/video-playlist-icon.svg"> 
+                <p class="course-snippet__category">{{course.numberOfVideos}} Lektionen</p>
+            </div>
+        </div>
+    </div>
+    <div class="course-snippet__price-wrapper d-flex align-items-end">
+        <p class="fw-bold m-0">{{course.nettoPrice}}€</p>
+        <span *ngIf="course.accessInMonths == 0" class="course-snippet__price-details">/einmalig</span>
+        <span *ngIf="course.accessInMonths > 0" class="course-snippet__price-details">/Abo</span>
+    </div>    
+</div>
+

@@ -1,0 +1,44 @@
+@import '../core/styles/colors';
+@import '../core/styles/fonts';
+
+.main-footer {
+    &__container {
+        padding: 1rem 0 3rem 0;
+        margin-top: 2rem;
+        justify-content: center;
+        border-top: 1px solid $highlight-orange;
+    }
+
+    &__copyright-text {
+        font-size: small;
+        margin-bottom: 0.75rem;
+    }
+
+    &__links {
+        margin-bottom: 1.25rem;
+    }
+
+    &__link {
+        color: $text-normal;
+        cursor: pointer;
+        margin: 0 1rem;
+        font-family: $secondary-font;
+    }
+
+    &__link:hover {
+        color: $text-normal-hover;
+    }
+
+    &__logo {
+        width: 92px;
+        height: 50px;
+        margin-bottom: 0.5rem;
+    }
+
+    &__social-media-icon {
+        width: 25px;
+        height: 25px;
+        margin: 0 0.5rem;
+        cursor: pointer;
+    }
+}    

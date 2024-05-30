@@ -1,0 +1,156 @@
+<div *ngIf="course" class="container-lg p-3 justify-content-center">
+    <div class="d-flex justify-content-center mb-4">
+        <img class="course-compare-snippet__course-image px-4" src={{course.thumbnailLink}}>
+    </div>
+
+    <div class="p-3">
+        <h3>{{course.name}}</h3>
+
+        <p *ngIf="(coaches | async) as coach_list">
+            <span *ngFor="let coach of coach_list; let i = index">
+                <span *ngIf="coach.displayName">{{coach.displayName}}</span>
+                <span *ngIf="!coach.displayName">{{coach.firstName}} {{coach.lastName}}</span>
+                <span *ngIf="i != coach_list.length-1">, </span>
+            </span>
+        </p>
+    </div>    
+
+    <div class="row gx-0">
+        <div *ngIf="course.numberOfVideos && course.numberOfVideos > 0" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/video-playlist-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">{{course.numberOfVideos}} Lektionen</p>
+        </div>
+
+        <div *ngIf="course.hasDirectMessages || course.hasPhonecalls" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/support-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">mit Support</p>
+        </div>
+
+        <div *ngIf="course.certificate" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/certificate-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">mit Zertifikat</p>
+        </div>
+
+        <div *ngIf="course.accessInMonths" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/duration-icon.svg"> 
+            <p *ngIf="course.accessInMonths == 0" class="course-snippet__category m-0 ms-2">Für immer</p>
+            <p *ngIf="course.accessInMonths > 0" class="course-snippet__category m-0 ms-2">{{course.accessInMonths}} Monate</p>
+        </div>
+
+        <div *ngIf="course.hoursOfVideos && course.hoursOfVideos > 0" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/video-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">{{course.hoursOfVideos}}h Videos</p>
+        </div>
+
+        <div class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/graph-icon.svg"> 
+            <p *ngIf="course.requiresPriorKnowledge" class="course-snippet__category m-0 ms-2">Vorheriges Wissen benötigt</p>
+            <p *ngIf="!course.requiresPriorKnowledge" class="course-snippet__category m-0 ms-2">Für Anfänger</p>
+        </div>
+
+        <div *ngIf="course.hasOneOnOneCoaching" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/compass-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">1 zu 1 Coaching</p>
+        </div>
+
+        <div *ngIf="course.hasVideocalls" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/compass-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">Videocalls</p>
+        </div>
+
+        <div *ngIf="course.hasWorkshops" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/compass-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">Workshops</p>
+        </div>
+
+        <div *ngIf="course.hasSelfCoaching" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/compass-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">Selbst beibringen</p>
+        </div>
+
+        <div *ngIf="getLanguage()" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/internet-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">{{getLanguage()}}</p>
+        </div>
+
+        <div *ngIf="course.targetGender" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/user-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">{{course.targetGender}}</p>
+        </div>
+
+        <div *ngIf="course.accessInMonths && course.accessInMonths > 0" class="col mb-2 d-flex align-items-center justify-content-center course-compare-snippet__course-benefit">
+            <img class="course-compare-snippet__benefits-icon" src="assets/images/icons/duration-icon.svg"> 
+            <p class="course-snippet__category m-0 ms-2">{{getAvailabilityText()}}</p>
+        </div>
+        
+    </div>
+
+    <div class="d-flex align-items-center flex-column">
+        <h4 class="my-3">{{course.nettoPrice}}€ inkl. MwSt.</h4>
+        <button (click)="goToLink(course.affiliateLink)">Kaufen</button>
+    </div>
+    
+    <div *ngIf="course.tableOfContents" class="accordion my-4" id="tableOfContentsAccordion">
+        <div class="accordion-item course-compare-snippet__accordion">
+            <h2 class="accordion-header">
+                <button class="accordion-button course-compare-snippet__accordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Kursinhalte
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <span *ngFor="let chapter of course.tableOfContents.split('\n')">
+                        {{chapter}}<br>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="course.description" class="accordion my-4" id="descriptionAccordion">
+        <div class="accordion-item course-compare-snippet__accordion">
+            <h2 class="accordion-header">
+                <button class="accordion-button course-compare-snippet__accordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Kursbeschreibung
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">{{course.description}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="course.description" class="accordion my-4" id="requirmentsAccordion">
+        <div class="accordion-item course-compare-snippet__accordion">
+            <h2 class="accordion-header">
+                <button class="accordion-button course-compare-snippet__accordion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Empfohlen für
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <div *ngIf="course.requiresPriorKnowledge" class="d-flex">
+                        <h5>Vorkenntnisse</h5>
+                        <p>{{course.requiresPriorKnowledge}}</p>
+                    </div>
+                    <div *ngIf="course.requirments" class="d-flex">
+                        <h5>Anforderungen erforderlich?</h5>
+                        <p>{{course.requirments}}</p>
+                    </div>
+                    <div *ngIf="course.mimimumAge || course.maximumAge" class="d-flex">
+                        <h5>Alter</h5>
+                        <p>{{course.mimimumAge}} - {{course.maximumAge}} Jahre</p>
+                    </div>
+                    <div *ngIf="course.targetGender" class="d-flex">
+                        <h5>Geschlecht</h5>
+                        <p>{{course.targetGender}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button (click)="openCourse(course)">Zum Kurs</button>
+    </div>
+</div>

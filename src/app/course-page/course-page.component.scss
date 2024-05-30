@@ -1,0 +1,61 @@
+@import '../core/styles/colors';
+@import '../core/styles/fonts';
+@import '../core/styles/border-radii';
+
+.course-page {
+    &__course-image {
+        border-radius: $medium-curve;
+        width: 750px;
+        max-width: 100%;
+    }
+
+    &__name-container {
+        color: $text-normal;
+        margin: 2rem;
+    }
+
+    &__course-benefit {
+        padding: 0.25rem;
+        min-width: 175px;
+    }
+
+    &__benefits-icon {
+        width: 40px;
+    }
+
+    &__coach-image {
+        aspect-ratio: 1/1;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 100px;
+        border: 2px solid $highlight-orange;
+    }
+
+    &__coach-link {
+        width: 9rem;
+        font-weight: bold;
+    }
+
+    &__table-of-contents {
+        background-color: $background-dark-grey;
+        border-radius: $medium-curve;
+    }
+
+    &__accordion {
+        background-color: $background-dark-grey;
+        color: $text-normal;
+        font-family: $primary-font;
+        border-color: $background-dark-grey;
+        border-bottom: none;
+    }
+
+    &__accordion-title {
+        color: $highlight-orange;
+    }
+
+    &__course-section-title {
+        font-size: xxx-large;
+        text-align: center;
+    }
+}

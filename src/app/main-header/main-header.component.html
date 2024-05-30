@@ -1,0 +1,61 @@
+<div class="main-header__container">
+  <div [ngClass]="
+      showSearchButton
+        ? 'main-header__placeholder-big ms-3'
+        : 'main-header__placeholder ms-2'
+    "></div>
+
+  <button class="main-header__home-link" (click)="openHomepage()">
+    <img class="main-header__logo" src="assets/images/coachable-logo.png" />
+  </button>
+
+  <div class="main-header__flexBox">
+    <button type="button" class="main-header__btnLogin" data-bs-toggle="modal" data-bs-target="#LoginForm">
+      Login
+    </button>
+
+    <button type="button" class="main-header__btnSignUp" data-bs-toggle="modal" data-bs-target="#SignUp">
+      SignUp
+    </button>
+
+    <span id="searchBar">
+      <!-- *ngIf="showSearchButton" -->
+      <img class="main-header__button me-2" aria-expanded="false" (click)="openSearchBar()"
+        src="assets/images/icons/search-icon.svg" />
+      <input class="main-header__inPut" type="search" id="searchBarInPut" />
+    </span>
+
+    <span class="dropdown" data-bs-toggle="dropdown">
+      <button class="main-header__Userlogo">
+        <img class="dropdown-toggle" id="dropdownMenuLink" aria-expanded="false" (click)="openLoginModal()"
+          src="assets/images/icons/user-icon.svg" />
+        <span class="main-header__btnSpan"> Mein Profil </span>
+      </button>
+    </span>
+
+    <ul class="dropdown-menu" id="dropdown_menu" #dropdownMenuLink>
+      <li data-bs-toggle="modal" data-bs-target="#SignUp">
+        <a class="dropdown-list" href="#">
+          <img class="main-header__button" aria-expanded="false"  src="assets/images/icons/Vector1.svg"  alt="notFound" srcset=""> Mein Profil</a>
+      </li>
+      <li data-bs-toggle="modal" data-bs-target="#LoginForm">
+        <a class="dropdown-list" href="#">
+          <img class="main-header__button" aria-expanded="false"  src="assets/images/icons/Union.svg"  alt="notFound" srcset="">
+          MeineMerkliste</a>
+      </li>
+      <li>
+        <a class="dropdown-list" href="#"> 
+          <img class="main-header__button" aria-expanded="false"  src="assets/images/icons/Settings.svg"  alt="notFound" srcset="">
+          Einstellungen
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div>
+  <app-registration ></app-registration>
+</div>
+
+<div>
+  <app-login ></app-login>
+</div>

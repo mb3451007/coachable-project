@@ -1,0 +1,22 @@
+<h1 class="text-center my-4">Ihre Kurse im Vergleich</h1>
+<div class="comparison-page__compare-grid">
+    
+    <div class="comparison-page__compare-item">
+        <app-search-bar *ngIf="!courses[0]" (courseClicked)="updateCourse(0, $event)" [searchType]="searchType"></app-search-bar>
+        <app-course-compare-snippet *ngIf="courses && courses[0]" [course]="courses[0]"></app-course-compare-snippet>
+    </div>
+    <div class="comparison-page__compare-item">
+        <app-search-bar *ngIf="!courses[1]" (courseClicked)="updateCourse(1, $event)" [searchType]="searchType"></app-search-bar>
+        <app-course-compare-snippet *ngIf="courses && courses[1]" [course]="courses[1]"></app-course-compare-snippet>
+    </div>
+    <div class="comparison-page__compare-item">
+        <app-search-bar *ngIf="!courses[2]" (courseClicked)="updateCourse(2, $event)" [searchType]="searchType"></app-search-bar>
+        <app-course-compare-snippet *ngIf="courses && courses[2]" [course]="courses[2]"></app-course-compare-snippet>
+    </div>
+</div>
+
+<div *ngIf="(coaches | async) as coach_list" class="container-lg text-center my-5">
+    <h2 class="mb-3 coach-page__course-section-title">Weitere Coaches</h2>
+    <app-coach-carousel [coaches]="coaches"></app-coach-carousel>
+</div>
+

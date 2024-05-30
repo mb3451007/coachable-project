@@ -1,0 +1,95 @@
+@import "../core/styles/colors";
+@import "../core/styles/fonts";
+@import "../core/styles/screen-sizes.scss";
+@import "../core/styles/border-radii";
+
+.modal-body {
+  background-color: #0f0f0f;
+  max-width: 500px;
+
+  &__form {
+    justify-content: center;
+    padding: 10%;
+    padding-top: 5%;
+  }
+  &__registration {
+    text-align: center;
+    color: whitesmoke;
+  }
+  &__btn {
+    background-color: #F17B19;
+    color: #0f0f0f;
+    width: 65%;
+    margin-left: 17%;
+  }
+  &__LinkBtn {
+    // padding-top: 8px;
+    border-radius: 1px white;
+    width: 65%;
+    margin-left: 17%;
+    margin-bottom: 4%;
+  }
+
+  &__konto {
+    text-align: center;
+    color: whitesmoke;
+    padding: 18px;
+    font-size: 9px;
+    font-weight: 400;
+    // border-top: 1px solid lightgray;
+  }
+  &__forgetRegis {
+    text-align: center;
+    color: #F17B19;
+    padding: 18px;
+    font-size: 9px;
+    font-weight: 400;
+  }
+  &__button{
+    cursor: pointer;
+    max-width: 30px;
+    margin-right: 20px;
+    background-color: black;
+    padding-bottom: 3px;
+  }
+}
+input::placeholder {
+  color: whitesmoke; /* Change placeholder color here */
+}
+.emailHeading{
+    width: 65%;
+    margin-left: 17%;
+}
+
+h5 {
+    overflow: hidden;
+    text-align: center;
+    color: whitesmoke;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    // font-size: x-small;
+    // font-weight: 500;
+  }
+  
+  h5::before,
+  h5::after {
+    background-color: white;
+    content: "";
+    display: inline-block;
+    height: 0.09px;
+    opacity: 0.25;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  
+  h5::before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+  h5::after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+

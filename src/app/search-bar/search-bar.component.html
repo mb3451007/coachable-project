@@ -1,0 +1,27 @@
+<div class="search-bar__searchbar-box">
+  <span class="search-bar__searchbar-icon material-symbols-outlined">
+      search
+  </span>
+  <input (keyup)="retrieveSearchResults($event)" (keyup.enter)="openSearchPage($event)" class="search-bar__searchbar-input" placeholder="{{placeholder ? placeholder : standardPlaceholder}}" #searchBar>
+  <div *ngIf="searchResult && ((searchResult.coachResult && searchResult.coachResult.length > 0) || (searchResult.courseResult && searchResult.courseResult.length > 0))" class="search-bar__searchbar-results">
+      <a *ngFor="let coach of searchResult.coachResult" (click)="coachSelectedByUser(coach)" class="search-bar__result-entry">
+          <div class="search-bar__search-image-container">
+              <img class="search-bar__search-image" src={{coach.profilePictureLink}}>
+          </div>
+          <div class="search-bar__result-entry-info">
+              <p class="search-bar__result-entry-title">{{coach.firstName}} {{coach.lastName}}</p>
+              <p class="search-bar__result-entry-subtitle">Coach</p>
+          </div>
+          
+      </a>
+      <div *ngFor="let course of searchResult.courseResult" (click)="courseSelectedByUser(course)" class="search-bar__result-entry">
+          <div class="search-bar__search-image-container">
+              <img class="search-bar__search-image" src={{course.thumbnailLink}}>
+          </div>
+          <div class="search-bar__result-entry-info">
+              <p class="coach-page__course-name search-bar__result-entry-title">{{course.name}}</p>
+              <p class="search-bar__result-entry-subtitle">Kurs</p>
+          </div>
+      </div>
+  </div>
+</div> 

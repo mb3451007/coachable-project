@@ -1,0 +1,201 @@
+@import "../core/styles/colors";
+@import "../core/styles/screen-sizes.scss";
+
+.main-header {
+  &__container {
+    padding: 0.3rem 2rem;
+    display: flex;
+    flex-direction: row;
+    background-color: $background-black;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, #1800d2, #894ac2, #f17b19);
+  }
+
+  &__home-link {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+  }
+
+  &__logo {
+    height: 40px;
+  }
+
+  &__log-in {
+    margin-right: 1rem;
+  }
+
+  &__placeholder {
+    width: 30px;
+    display: none;
+  }
+
+  &__placeholder-big {
+    width: 60px;
+    display: none;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 20px;
+    margin-right: 10px;
+    background-color: black;
+  }
+  
+
+  &__Userlogo {
+    font-family: BarlowCondensed;
+    padding: 0.5rem 2rem;
+    font-size: medium;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    color: #000;
+    background-color: black;
+    border-radius: 2rem;
+    border: 2px solid #ff8c00;
+  }
+  &__btnSpan {
+    font-family: BarlowCondensed;
+    font-size: medium;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    color: #fc7214;
+    background-color: black;
+    border-radius: 2rem;
+  }
+  &__inPut {
+    width: 30%;
+  }
+  &____flexBox {
+    display: flex;
+    flex-direction: column;
+  }
+  &__btnLogin{
+    font-family: BarlowCondensed;
+    // padding: 0.5rem 2rem;
+    margin-right: 4px;
+    font-size: medium;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    color: orange;
+    background-color: black;
+    border-radius: 2rem;
+    border: 2px solid #ff8c00;
+  }
+  &__btnSignUp{
+    font-family: BarlowCondensed;
+    // padding: 0.5rem 2rem;
+    margin-right: 4px;
+    font-size: medium;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    color: black;
+    background-color: #F17B19;
+    border-radius: 2rem;
+    border: 2px solid  #F17B19;
+  }
+}
+#searchBar {
+  padding: 7px;
+  margin-right: 3px;
+  border-radius: 10px; /* Round the corners to create a circular border */
+  overflow: hidden;
+  border: 2px solid #ff8c00;
+}
+#searchBarInPut {
+  padding: 0px;
+  background-color: black;
+  color: whitesmoke;
+  border: none;
+  outline: none;
+}
+.dropdown-menu{
+  margin-top: 19px !important;
+  position: absolute;
+  transform: translate3d(1010.5px, 43.5px, 0px);
+  border: 2px solid #ff8c00;
+  padding: 11px;
+  border-radius: 18px;
+  background-color: black;
+
+  li {
+    padding: 10px 0;
+  }
+}
+.dropdown-list {
+  display: block;
+  width: 100%;
+  color: whitesmoke;
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+  clear: both;
+  font-weight: 400;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--bs-dropdown-item-border-radius, 0);
+}
+
+@media screen and (max-width: $smartphone) {
+  .main-header {
+    &__container {
+      padding: 0.3rem 0.2rem;
+    }
+
+    &__log-in {
+      margin-right: 0.25rem;
+    }
+
+    &__home-link {
+      padding: 0.5rem 0.25rem;
+    }
+
+    &__placeholder {
+      display: block;
+    }
+    &__inPut {
+      width: 30%;
+    }
+
+    &__placeholder-big {
+      display: block;
+    }
+    &__btn-login {
+      display: none;
+    }
+    &__btn-signUp {
+      display: none;
+    }
+    &__btnSpan {
+      display: none;
+    }
+    &__Userlogo {
+      font-family: BarlowCondensed;
+      // padding: 0.5rem 2rem;
+      // font-size: medium;
+      cursor: pointer;
+      // -webkit-appearance: none;
+      // appearance: none;
+      color: #000;
+      // background-color: black;
+      // border-radius: 2rem;
+      border: none;
+    }
+    &__flexBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+    }
+  }
+}

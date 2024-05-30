@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: 'BarlowCondensed';
+    src: url("/assets/fonts/Barlow_Condensed/BarlowCondensed-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BarlowCondensed';
+    src: url("/assets/fonts/Barlow_Condensed/BarlowCondensed-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans';
+    src: url("/assets/fonts/Noto_Sans/NotoSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'NotoSans';
+    src: url("/assets/fonts/Noto_Sans/NotoSans-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans';
+    src: url("/assets/fonts/Noto_Sans/NotoSans-Light.ttf") format("truetype");
+    font-weight: lighter;
+    font-style: normal;
+}
