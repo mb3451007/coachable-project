@@ -18,11 +18,11 @@
       SignUp
     </button>
 
-    <span id="searchBar">
-      <!-- *ngIf="showSearchButton" -->
-      <img class="main-header__button me-2" aria-expanded="false" (click)="openSearchBar()"
-        src="assets/images/icons/search-icon.svg" />
-      <input class="main-header__inPut" type="search" id="searchBarInPut" />
+
+
+    <span id="searchBar" class="main-header__button">
+      <img aria-expanded="false" (click)="openSearchBar()" src="assets/images/icons/search-icon.svg" />
+      <input class="main-header__inPut" type="search" id="searchBarInPut" placeholder="search" />
     </span>
 
     <span class="dropdown" data-bs-toggle="dropdown">
@@ -36,16 +36,19 @@
     <ul class="dropdown-menu" id="dropdown_menu" #dropdownMenuLink>
       <li data-bs-toggle="modal" data-bs-target="#SignUp">
         <a class="dropdown-list" href="#">
-          <img class="main-header__button" aria-expanded="false"  src="assets/images/icons/Vector1.svg"  alt="notFound" srcset=""> Mein Profil</a>
+          <img class="main-header__button" aria-expanded="false" src="assets/images/icons/Vector1.svg" alt="notFound"
+            srcset=""> Mein Profil</a>
       </li>
       <li data-bs-toggle="modal" data-bs-target="#LoginForm">
         <a class="dropdown-list" href="#">
-          <img class="main-header__button" aria-expanded="false"  src="assets/images/icons/Union.svg"  alt="notFound" srcset="">
+          <img class="main-header__button" aria-expanded="false" src="assets/images/icons/Union.svg" alt="notFound"
+            srcset="">
           MeineMerkliste</a>
       </li>
       <li>
-        <a class="dropdown-list" href="#"> 
-          <img class="main-header__button" aria-expanded="false"  src="assets/images/icons/Settings.svg"  alt="notFound" srcset="">
+        <a class="dropdown-list" href="#">
+          <img class="main-header__button" aria-expanded="false" src="assets/images/icons/Settings.svg" alt="notFound"
+            srcset="">
           Einstellungen
         </a>
       </li>
@@ -53,9 +56,9 @@
   </div>
 </div>
 <div>
-  <app-registration ></app-registration>
+  <app-registration></app-registration>
 </div>
 
 <div>
-  <app-login ></app-login>
+  <app-login></app-login>
 </div>

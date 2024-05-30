@@ -45,6 +45,10 @@
     width: 20px;
     margin-right: 10px;
     background-color: black;
+    overflow: hidden;
+    img{
+      padding-left: 8px;
+    }
   }
   
 
@@ -171,10 +175,10 @@
     &__placeholder-big {
       display: block;
     }
-    &__btn-login {
+    &__btnLogin {
       display: none;
     }
-    &__btn-signUp {
+    &__btnSignUp {
       display: none;
     }
     &__btnSpan {
@@ -182,11 +186,7 @@
     }
     &__Userlogo {
       font-family: BarlowCondensed;
-      // padding: 0.5rem 2rem;
-      // font-size: medium;
       cursor: pointer;
-      // -webkit-appearance: none;
-      // appearance: none;
       color: #000;
       // background-color: black;
       // border-radius: 2rem;

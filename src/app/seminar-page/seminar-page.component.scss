@@ -10,13 +10,52 @@
   }
 
   &__searchArea {
-    padding: 0.3rem 2rem;
-    display: flex;
-    flex-direction: row;
-    background-color: $background-black;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 0.6fr;
+    background-color: #1C1C1C;
+    margin: 29px;
     justify-content: space-between;
+    border-radius: 16px;
     align-items: center;
+    padding: 20px 12px;
   }
+  &__searchBar{
+    cursor: pointer;
+    margin-left: 40px;
+    border-radius: 17px;
+    background-color: white;
+    border: black;
+    display: flex;
+    overflow: hidden;
+    img {
+      padding-left: 8px;
+      background-color: #ffffff;
+    }
+  }
+  &__inPut {
+    padding: 6px;
+    width: 100%;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    
+  }
+  &__dropdown{
+    padding-left: 20px;
+    select{
+      padding: 5px 149px 6px 8px ;
+      border-radius: 7px;
+      border: none;
+      width: 90%;
+    }
+  }
+  &__toggle{
+    display: flex;
+    div{
+      margin-left: 8px;
+    }
+  }
+  
   &__side {
     padding: 0.3rem 0.3rem;
     background-color: $background-black;
@@ -106,6 +145,19 @@
 }
 
 
+::ng-deep {
+  .form-switch .form-check-input:checked {
+    --bs-form-switch-bg: url('../../assets/images/btn-toggle.png') !important;
+  }
+  .form-switch .form-check-input {
+    --bs-form-switch-bg: url('../../assets/images/btn-toggle.png') !important;
+  }
+}
+
+.form-check-input {
+  background-color: black;
+  border: 2px solid #F17B19;
+}
 
 
 

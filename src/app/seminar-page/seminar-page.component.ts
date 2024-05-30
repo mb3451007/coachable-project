@@ -7,11 +7,17 @@ import { Component } from '@angular/core';
 })
 export class SeminarPageComponent {
   // starIcon = faStar;
-  gridhide:boolean=false;
+  showHide:boolean=true;
+ 
 
   gridHide(){
-    console.log(this.gridhide)
-    this.gridhide = !this.gridhide;
-    console.log(this.gridhide)
+   this.showHide = true
   }
+
+  listHide(){
+   this.showHide = false
+  }
+  openSearchBar() {
+    throw new Error('Method not implemented.');
+  }  
 }
