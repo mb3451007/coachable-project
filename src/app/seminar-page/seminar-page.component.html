@@ -1,31 +1,47 @@
 <div class="main-seminar__container">
   <div class="main-seminar__searchArea">
     <div class="main-seminar__searchBar">
-      
-        <img src="assets/images/icons/searchbarBlack.svg" alt="">
-      <input type="password" class="main-seminar__inPut " placeholder="search" id="exampleInputPassword1">
+
+      <img src="assets/images/icons/searchbarBlack.svg" alt="">
+      <input type="text" class="main-seminar__inPut " placeholder="search" id="exampleInputPassword1"
+        [(ngModel)]="searchQuery" (focus)="loadPreviousSearches()" (click)="saveSearchQuery()"
+        value="show suggestions in input field" name="q">
     </div>
+
     <div class="main-seminar__dropdown">
-      
-        <select id="kategorien">
-          <option value="kategorien">kategorien</option>
-          <option value="kategorien">kategorien</option>
-          <option value="kategorien">kategorien</option>
-          <option value="kategorien">kategorien</option>
-        </select>
-      
+
+
+      <select id="Kategorien">
+        <option value="kategorien">Kategorien</option>
+        <option value="kategorien">Kategorien</option>
+        <option value="kategorien">Kategorien</option>
+        <option value="kategorien">Kategorien</option>
+        <option value="kategorien">Kategorien</option>
+        <option value="kategorien">Kategorien</option>
+        <option value="kategorien">Kategorien</option>
+      </select>
+
+
     </div>
 
     <div class="main-seminar__toggle">
       <span>kurs</span>
       <div class="form-check form-switch">
-        <input class="form-check-input"
-           type="checkbox"
-          role="switch" id="flexSwitchCheckChecked" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
         <label class="form-check-label" for="flexSwitchCheckChecked">coach</label>
       </div>
-    </div>  
+    </div>
 
+  </div>
+
+
+  <div *ngIf="previousSearches.length > 0" class="main-seminar__suggestions">
+    <ul type="none">
+      <li *ngFor="let search of previousSearches" (click)="selectSearchQuery(search)">
+        <img src="assets/images/icons/seminarPageIcon/Icon, Schließen.svg" alt=""
+          onclick="this.parentElement.style.display='none'"> {{ search }}
+      </li>
+    </ul>
   </div>
 
   <div class="main-seminar__side">
@@ -33,17 +49,21 @@
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
-          Zertifikat
+          Zertifikat <img src="assets/images/icons/seminarPageIcon/leftSideIcon/Info.svg" alt="">
         </label>
       </div>
 
       <div class="main-seminar__preissPanne">
-        <span>Preisspanne</span>
+        <span>
+          <img src="assets/images/icons/seminarPageIcon/leftSideIcon/Euro.svg" alt="">
+          Preisspanne</span>
         <div class="progress-container">
           <!-- <div class="progress-bar" style="width: 50%;"></div> -->
           <div class="label-left">0 euro</div>
           <div class="label-right">&gt;20000 euro</div>
-          <mat-progress-bar class="progress-bar" mode="determinate" value="50"></mat-progress-bar>
+          <mat-slider min="0" max="20000" step="1" discrete value="1">
+            <input matSliderThumb>
+          </mat-slider>
         </div>
         <div class="form-check" style="padding-top: 10px;">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -60,12 +80,16 @@
       </div>
 
       <div class="main-seminar__preissPanne">
-        <span>Zugangsdauer</span>
+        <span>
+          <img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt="">
+          Zugangsdauer</span>
         <div class="progress-container">
           <!-- <div class="progress-bar" style="width: 50%;"></div> -->
-          <div class="label-left">&lt; 1 Monat</div>
+          <div class="label-left">&lt;1 Monat</div>
           <div class="label-right">&gt;24 Monate</div>
-          <mat-progress-bar class="progress-bar" mode="determinate" value="10"></mat-progress-bar>
+          <mat-slider min="1" max="24" step="1" discrete value="1">
+            <input matSliderThumb>
+          </mat-slider>
         </div>
         <div class="form-check" style="padding-top: 20px;">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -77,7 +101,9 @@
       </div>
 
       <div class="main-seminar__preissPanne">
-        <span>Support</span>
+        <span>
+          <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt="">
+          Support</span>
         <div style="padding-top:10px ;">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -132,12 +158,16 @@
       </div>
 
       <div class="main-seminar__preissPanne">
-        <span>Videodauer</span>
+        <span>
+          <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt="">
+          Videodauer</span>
         <div class="progress-container">
           <!-- <div class="progress-bar" style="width: 50%;"></div> -->
-          <div class="label-left">&lt; 5 Stunden</div>
-          <div class="label-right">&gt;12 500 Stunden</div>
-          <mat-progress-bar class="progress-bar" mode="determinate" value="10"></mat-progress-bar>
+          <div class="label-left">&lt;5 Stunden</div>
+          <div class="label-right">&gt;500 Stunden</div>
+          <mat-slider min="5" max="500" step="5" discrete value="5">
+            <input matSliderThumb>
+          </mat-slider>
         </div>
 
       </div>
@@ -147,14 +177,16 @@
         <legend>Suchseite?</legend>
 
 
-        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star"></mat-icon> -->
-        <!-- <fa-icon [icon]="starIcon" ></fa-icon> -->
+
         <div class="main-seminar__RatingStars">
-          <span class="fa fa-star checked main-seminar__star"></span>
-          <span class="fa fa-star checked main-seminar__star"></span>
-          <span class="fa fa-star icon-body-color main-seminar__star"></span>
-          <span class="fa fa-star main-seminar__star"></span>
-          <span class="fa fa-star main-seminar__star"></span>
+
+          <img src="assets/images/icons/seminarPageIcon/leftSideIcon/Star.svg" alt="">
+          <img src="assets/images/icons/seminarPageIcon/leftSideIcon/Star.svg" alt="">
+          <img src="assets/images/icons/seminarPageIcon/leftSideIcon/Star.svg" alt="">
+          <img src="assets/images/icons/seminarPageIcon/leftSideIcon/Star.svg" alt="">
+          <img src="assets/images/icons/seminarPageIcon/leftSideIcon/Star.svg" alt="">
+
+
         </div>
       </div>
 
@@ -166,8 +198,9 @@
         <span>129 Ergebnisse fur "online Seminar"</span>
       </div>
       <div class="main-seminar__Option">
-        <div>
-          <h6>Sortiere nach:</h6>
+        <span>Sortiere nach:</span>
+        <br>
+        <div class="main-seminar__bewertet">
           <select id="Bewertet">
             <option value="top-Bewertet">top-Bewertet</option>
             <option value="top-Bewertet">top-Bewertet</option>
@@ -176,8 +209,10 @@
           </select>
         </div>
         <div class="main-seminar__button">
-          <button class="leftBtn" type="button" (click)="gridHide()">Grid</button>
-          <button class="rightBtn" type="button"(click)="listHide()" >list</button>
+          <button class="leftBtn" type="button" (click)="gridHide()"><img
+              src="assets/images/icons/seminarPageIcon/Kompakt.svg" alt="">Kompakt</button>
+          <button class="rightBtn" type="button" (click)="listHide()"><img
+              src="assets/images/icons/seminarPageIcon/Sort.svg" alt=""> Liste</button>
         </div>
       </div>
       <!-- Grid container  -->
@@ -209,8 +244,8 @@
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
-                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
-                  Lektionen</span>
+                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt="">
+                  40Lektionen</span>
                 <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
                 <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
                   Stunden</span>
@@ -240,7 +275,7 @@
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-        <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Excel Online Kurs für Fortgeschrittene: Excel Exper... </span>
@@ -266,47 +301,48 @@
               <span>599,00€</span>
             </mat-card-content>
           </mat-card>
-          </div>
-          <div class="main-seminar__gridItems">
-            <mat-card>
+        </div>
+        <div class="main-seminar__gridItems">
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Selfi-Challenge: Wie du schöne Bilder von dir für dein Busin...</span>
               <span>Carolin Zimprich</span>
               <div class="main-seminar__gridItemsList">
-                <span> 
-                  <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 
+                <span>
+                  <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt="">
                   40Lektionen
                 </span>
-                  <span>
-                    <img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch
-                  </span>
-                
+                <span>
+                  <img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch
+                </span>
+
               </div>
               <legend>59,00$ <sub>/einmalig</sub></legend>
             </mat-card-content>
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-            <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Moviecash Version 2.0 </span>
               <span>Der Wolf</span>
               <div class="main-seminar__gridItemsList">
-                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> keine Info</span>
-                  <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> keine Info</span>
-                  <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt="">keine Info</span>
-                    <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> keine Info</span>
-                    <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
-                   
+                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> keine
+                  Info</span>
+                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> keine Info</span>
+                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt="">keine Info</span>
+                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> keine Info</span>
+                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
               </div>
               <legend>279,00$ /einmalig</legend>
             </mat-card-content>
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-            <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
@@ -314,18 +350,18 @@
               <div class="main-seminar__gridItemsList">
                 <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
                   Lektionen</span>
-                  <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
-                  <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
-                    Stunden</span>
-                    <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
-                    <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                  Stunden</span>
+                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
               </div>
               <legend>500,00$ /einmalig</legend>
             </mat-card-content>
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-            <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
@@ -343,7 +379,7 @@
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-            <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
@@ -361,7 +397,7 @@
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-            <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
@@ -379,7 +415,7 @@
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-            <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
@@ -397,7 +433,7 @@
           </mat-card>
         </div>
         <div class="main-seminar__gridItems">
-            <mat-card>
+          <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
@@ -418,13 +454,13 @@
 
       <!-- list container  -->
 
- <div class="main-seminar__listContainer" *ngIf="!showHide">
-       
-         
-        <div class="main-seminar__listItems" >
+      <div class="main-seminar__listContainer" *ngIf="!showHide">
+
+
+        <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -443,7 +479,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -464,7 +500,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -482,7 +518,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -500,7 +536,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -518,7 +554,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -536,7 +572,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -554,7 +590,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -572,7 +608,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -590,7 +626,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -608,7 +644,7 @@
         <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -623,10 +659,10 @@
             </mat-card-content>
           </mat-card>
         </div>
-         <div class="main-seminar__listItems">
+        <div class="main-seminar__listItems">
           <mat-card>
             <mat-card-content>
-               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
+              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
               <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__listItemsList">
@@ -642,14 +678,12 @@
           </mat-card>
         </div>
 
-      
 
-    </div>  
+
+      </div>
 
 
     </div>
 
   </div>
-
-   
-            
+</div>

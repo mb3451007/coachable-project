@@ -37,6 +37,7 @@ import { SeminarPageComponent } from './seminar-page/seminar-page.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatProgressBarModule,
     MatIconModule,
     FontAwesomeModule,
+    MatSliderModule,
     
     
 
