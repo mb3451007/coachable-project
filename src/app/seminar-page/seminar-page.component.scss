@@ -20,7 +20,8 @@
   }
   &__searchBar {
     cursor: pointer;
-    margin-left: 40px;
+    margin-left: 4rem;
+    margin-right: 1rem;
     border-radius: 17px;
     background-color: white;
     border: black;
@@ -194,6 +195,21 @@ mat-slider {
 }
 
 ::ng-deep {
+
+  
+
+  .dropdown-toggle:after {
+    display: inline-block;
+    margin-left: 13.255em;
+    vertical-align: .255em;
+    // content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid 
+  }
+
+
   .form-check-input{
     background-color: #000;
     border: 2px solid #f17b19 !important;
@@ -237,6 +253,21 @@ mat-slider {
 }
 
 
+
+.dropdown-toggle{
+  font-family: BarlowCondensed;
+  padding: 0.5rem 1rem;
+  // margin-left: 1rem;
+  font-size: medium;
+  border: none;
+  /* border-radius: 9px; */
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #000;
+  background-color: white;
+  border-radius: .5rem;
+}
 
 .leftBtn {
   border-top-left-radius: 7px;
@@ -301,3 +332,8 @@ mat-slider {
   font-size: 14px;
   font-weight: bold;
 }
+
+
+
+
+

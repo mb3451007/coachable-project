@@ -38,6 +38,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+
+
+
+
 
 
 @NgModule({
@@ -81,8 +87,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatIconModule,
     FontAwesomeModule,
     MatSliderModule,
-    
-    
+    MatButtonModule,
+    MatMenuModule
 
 
   ],
