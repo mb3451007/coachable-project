@@ -6,6 +6,7 @@
 .main-seminar {
   &__container {
     color: #ffffff;
+    max-width: 1400px;
   }
 
   &__searchArea {
@@ -32,24 +33,23 @@
       background-color: #ffffff;
     }
   }
-  &__suggestions{
+  &__suggestions {
     display: flex;
     justify-content: space-between;
     // margin-left: 41px;
     overflow-x: auto;
-    ul{
+    ul {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
     }
-    ul li{
-
+    ul li {
       margin-right: 22px;
-      background-color: #1c1c1c;;
+      background-color: #1c1c1c;
       padding: 2px 12px;
       border-radius: 14px;
     }
-    ul li img{
+    ul li img {
       padding: 1px 2px 3px;
       cursor: pointer;
     }
@@ -61,12 +61,11 @@
     border: none;
     outline: none;
   }
-&__toggle {
+  &__toggle {
     display: flex;
-    
+
     div {
       margin-left: 8px;
-      
     }
   }
 
@@ -88,8 +87,8 @@
   }
   &__RatingStars {
     text-align: center;
-    img{
-      padding-right: 5px
+    img {
+      padding-right: 5px;
     }
   }
   &__star {
@@ -105,10 +104,8 @@
     position: relative;
     top: 0;
     left: 5px;
-   
-   
   }
-  &__bewertet{
+  &__bewertet {
     background-color: white;
     max-width: 161px;
     padding: 1px 3px 3px 3px;
@@ -181,29 +178,28 @@ mat-slider {
   width: 90%;
 }
 
-
 ::ng-deep {
+  .fas {
+    display: inline !important ;
+  }
 
- 
-
-  .form-check-input{
+  .form-check-input {
     background-color: #000;
     border: 2px solid #f17b19 !important;
-}
+  }
 
   .form-switch .form-check-input:checked {
     --bs-form-switch-bg: url("../../assets/images/btn-toggle.png") !important;
   }
   .form-switch .form-check-input {
     --bs-form-switch-bg: url("../../assets/images/btn-toggle.png") !important;
-    
   }
   .mat-mdc-slider .mdc-slider__track--inactive {
-    background-color: white !important; 
+    background-color: white !important;
     border-color: white !important;
   }
 
-  .mat-mdc-slider .mdc-slider__track--active_fill{
+  .mat-mdc-slider .mdc-slider__track--active_fill {
     border-color: transparent !important;
   }
 
@@ -212,7 +208,7 @@ mat-slider {
   }
 
   .mat-mdc-slider .mdc-slider__thumb-knob {
-    background-color: lightgray!important; 
+    background-color: lightgray !important;
     border-color: lightgray !important;
   }
 
@@ -224,10 +220,8 @@ mat-slider {
     bottom: 0px !important;
     top: 34px !important;
     background: transparent !important;
-
   }
 }
-
 
 .leftBtn {
   border-top-left-radius: 7px;
@@ -293,22 +287,20 @@ mat-slider {
   font-weight: bold;
 }
 
-
-.drop{
+.drop {
   position: relative;
   background: white;
-    margin: 0px;
-    padding: .3rem;
-    padding-left: 0.6rem;
-    margin-right: 4rem;
-    border-radius: 4px;
-    color: #000;
-  li a{
-
+  margin: 0px;
+  padding: 0.3rem;
+  padding-left: 0.6rem;
+  margin-right: 4rem;
+  border-radius: 4px;
+  color: #000;
+  li a {
     text-decoration: none;
     color: black;
   }
-  li ul{
+  li ul {
     position: absolute;
     top: 1.9rem;
     left: 0;
@@ -317,22 +309,79 @@ mat-slider {
     display: none;
   }
 
-  li:hover > ul{
+  li:hover > ul {
     display: block;
     padding: 0px;
-    padding-left: .3rem;
+    padding-left: 0.3rem;
   }
-  li ul li{
+  li ul li {
     position: relative;
     width: 100%;
     padding: 0.3rem;
   }
-  li ul li ul{
+  li ul li ul {
     top: 0;
     left: 18rem;
-  
-
   }
-
 }
 
+@media (max-width: 768px) {
+  
+  .main-seminar {
+    &__container {
+      
+      width: 1100px;
+    }
+    &__searchArea {
+      width: 92%;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: auto auto auto;
+    }
+    &__searchBar {
+      margin: 0px;
+      margin-right: 4rem;
+      margin-bottom: .5rem;
+    }
+    &__side {
+   
+  
+      display: grid;
+      grid-template-columns: 1fr auto;
+      
+    }
+  }
+ 
+}
+
+@media (max-width: 576px) {
+  .main-seminar {
+    &__searchArea {
+      width: 92%;
+      padding: 30px;
+      display: grid;
+      grid-template-columns:auto auto auto;
+    }
+    &__searchBar {
+      margin: 0px;
+      margin-right: 4rem;
+      margin-bottom: .5rem;
+    }
+    &__side {
+   
+  
+      display: grid;
+      grid-template-columns: auto;
+      
+    }
+    &__gridContainer {
+      display: grid;
+      grid-template-columns: 0.5fr 0.5fr;
+  }
+  &__listContainer {
+    display: grid;
+    grid-template-columns: 1008px;
+  }
+}
+ 
+}
