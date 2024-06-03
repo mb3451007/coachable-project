@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-seminar-page',
   templateUrl: './seminar-page.component.html',

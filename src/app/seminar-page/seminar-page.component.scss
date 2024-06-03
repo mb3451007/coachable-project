@@ -61,20 +61,7 @@
     border: none;
     outline: none;
   }
-  &__dropdown {
-    background-color: white;
-    border-radius: 7px;
-    margin: 0px 80px 0px 12px;
-    padding: 5px 0px 5px 7px;
-    select {
-      border-radius: 7px;
-      border: none;
-      outline: none;
-      width: 98%;
-    }
-    
-  }
-  &__toggle {
+&__toggle {
     display: flex;
     
     div {
@@ -194,21 +181,10 @@ mat-slider {
   width: 90%;
 }
 
+
 ::ng-deep {
 
-  
-
-  .dropdown-toggle:after {
-    display: inline-block;
-    margin-left: 13.255em;
-    vertical-align: .255em;
-    // content: "";
-    border-top: .3em solid;
-    border-right: .3em solid transparent;
-    border-bottom: 0;
-    border-left: .3em solid 
-  }
-
+ 
 
   .form-check-input{
     background-color: #000;
@@ -252,22 +228,6 @@ mat-slider {
   }
 }
 
-
-
-.dropdown-toggle{
-  font-family: BarlowCondensed;
-  padding: 0.5rem 1rem;
-  // margin-left: 1rem;
-  font-size: medium;
-  border: none;
-  /* border-radius: 9px; */
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-  color: #000;
-  background-color: white;
-  border-radius: .5rem;
-}
 
 .leftBtn {
   border-top-left-radius: 7px;
@@ -334,6 +294,45 @@ mat-slider {
 }
 
 
+.drop{
+  position: relative;
+  background: white;
+    margin: 0px;
+    padding: .3rem;
+    padding-left: 0.6rem;
+    margin-right: 4rem;
+    border-radius: 4px;
+    color: #000;
+  li a{
 
+    text-decoration: none;
+    color: black;
+  }
+  li ul{
+    position: absolute;
+    top: 1.9rem;
+    left: 0;
+    width: 18.4rem;
+    background: white;
+    display: none;
+  }
 
+  li:hover > ul{
+    display: block;
+    padding: 0px;
+    padding-left: .3rem;
+  }
+  li ul li{
+    position: relative;
+    width: 100%;
+    padding: 0.3rem;
+  }
+  li ul li ul{
+    top: 0;
+    left: 18rem;
+  
+
+  }
+
+}
 
