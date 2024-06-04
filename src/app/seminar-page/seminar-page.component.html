@@ -1,36 +1,47 @@
 <div class="main-seminar__container">
   <div class="main-seminar__searchArea">
+    <div class="main-seminar__hideShowIconBtn">
+      <button class="" style="background: transparent;" type="button"   (click)="showFilter()">
+
+        <img src="assets/images/icons/seminarPageIcon/Filter.svg" alt="" >
+      </button>
+    </div>
     <div class="main-seminar__searchBar">
 
       <img src="assets/images/icons/searchbarBlack.svg" alt="">
-      <input type="text" class="main-seminar__inPut " placeholder="search" id="exampleInputPassword1"
-        [(ngModel)]="searchQuery" (focus)="loadPreviousSearches()" (click)="saveSearchQuery()"
-        value="show suggestions in input field" name="q">
+      <input type="text" class="main-seminar__inPut " placeholder="search" id="search-bar" [(ngModel)]="searchQuery"
+        (focus)="loadPreviousSearches()" (click)="saveSearchQuery()" value="show suggestions in input field" name="q"
+        (focus)="showResults()" (blur)="hideResults()">
+      <ul *ngIf="isFocused" class="search-results">
+        <li *ngFor="let result of results"> <img src="assets/images/icons/searchbarBlack.svg" alt="">{{ result }}</li>
+      </ul>
     </div>
 
-     <div class="">
-   <ul class="drop" type="none">
-      <li><a href="#"> Kategorien<i class="fas fa-caret-down" style="margin-left: 11rem;"></i></a>
-        <ul type="none">
-          <li> <a href="#">Kategorien <i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></a>
-            <ul type="none">
-              <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li> 
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          
-            </ul>
-          </li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>
-          <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;" ></i></li>  
-          
-        </ul>
-      </li>
-    </ul>
+
+
+    <div class="" *ngIf="showFilters">
+      <ul class="drop" type="none">
+        <li><a href="#"> Kategorien<i class="fas fa-caret-down" style="margin-left: 11rem;"></i></a>
+          <ul type="none">
+            <li> <a href="#">Kategorien <i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></a>
+              <ul type="none">
+                <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+                <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+                <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+                <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+                <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+
+              </ul>
+            </li>
+            <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+            <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+            <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+            <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+            <li><a href="#">Kategorien</a><i class="fas fa-caret-right" style="margin-left: 10.7rem;"></i></li>
+
+          </ul>
+        </li>
+      </ul>
 
 
     </div>
@@ -58,7 +69,11 @@
   </div>
 
   <div class="main-seminar__side">
-    <div class="main-seminar__leftSide">
+    <div class="main-seminar__leftSide" *ngIf="showFilters">
+      <button class="leftBtn" type="button"   (click)="hideFilter()">
+
+        <img src="assets/images/icons/seminarPageIcon/Filter.svg" alt="" >
+      </button>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
@@ -206,7 +221,7 @@
     </div>
 
 
-    <div class="main-seminar__rightSide">
+    <div class="main-seminar__rightSide" *ngIf="!showFilters">
       <div>
         <span>129 Ergebnisse fur "online Seminar"</span>
       </div>
@@ -229,13 +244,16 @@
         </div>
       </div>
       <!-- Grid container  -->
+      
+      
 
-      <div class="main-seminar__gridContainer" *ngIf="showHide">
+      <div class="main-seminar__gridContainer" *ngIf="!showHide">
         <div class="main-seminar__gridItems">
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span> <img src="assets/images/icons/seminarPageIcon/Video Playlist.svg" alt="not found"> 40
@@ -254,7 +272,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt="">
@@ -275,8 +294,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>The NETucator - Jahresabo </span>
-              <h6>The NETucator</h6>
+              <span class="main-seminar__headingFont">The NETucator - Jahresabo </span>
+              <span>The NETucator</span>
               <div class="main-seminar__gridItemsList">
 
                 <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt="">14 Monate</span>
@@ -291,7 +310,7 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Excel Online Kurs für Fortgeschrittene: Excel Exper... </span>
+              <span class="main-seminar__headingFont">Excel Online Kurs für Fortgeschrittene: Excel Exper... </span>
               <span>Excel Hero</span>
               <div class="main-seminar__gridItemsList">
                 <span>
@@ -319,7 +338,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Selfi-Challenge: Wie du schöne Bilder von dir für dein Busin...</span>
+              <span class="main-seminar__headingFont">Selfi-Challenge: Wie du schöne Bilder von dir für dein
+                Busin...</span>
               <span>Carolin Zimprich</span>
               <div class="main-seminar__gridItemsList">
                 <span>
@@ -339,7 +359,7 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Moviecash Version 2.0 </span>
+              <span class="main-seminar__headingFont">Moviecash Version 2.0 </span>
               <span>Der Wolf</span>
               <div class="main-seminar__gridItemsList">
                 <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> keine
@@ -358,7 +378,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
@@ -377,7 +398,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span>40 Lektionen</span>
@@ -395,7 +417,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span>40 Lektionen</span>
@@ -413,7 +436,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span>40 Lektionen</span>
@@ -431,7 +455,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span>40 Lektionen</span>
@@ -449,7 +474,8 @@
           <mat-card>
             <mat-card-content>
               <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
+              <span class="main-seminar__headingFont">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
               <span>Dennis Bauer</span>
               <div class="main-seminar__gridItemsList">
                 <span>40 Lektionen</span>
@@ -467,229 +493,401 @@
 
       <!-- list container  -->
 
-      <div class="main-seminar__listContainer" *ngIf="!showHide">
+      <div class="main-seminar__listContainer" *ngIf="showHide">
+        <div class="main-seminar__listItems">
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
+              </div>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
 
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="main-seminar__listItems">
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
+              </div>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="main-seminar__listItems">
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
+              </div>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="main-seminar__listItems">
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
+              </div>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
+        </div>
 
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span> <img src="assets/images/icons/seminarPageIcon/Video Playlist.svg" alt="not found"> 40
-                  Lektionen</span>
-                <span><img src="assets/images/icons/seminarPageIcon/Group 89.svg" alt=""> mit Support</span>
-                <span><img src="assets/images/icons/seminarPageIcon/Circle Play.svg" alt="">120 Stunden</span>
-                <span><img src="assets/images/icons/seminarPageIcon/Update.svg" alt="">24 Monate</span>
-                <span><img src="assets/images/icons/seminarPageIcon/Internet.svg" alt="">Deutsch</span>
-                <span><img src="assets/images/icons/seminarPageIcon/Auszeichnung.svg" alt=""> mit Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <span>500,00$<sub>/einmalig</sub> </span>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
-                  Lektionen</span>
-                <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
-                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
-                  Stunden</span>
-                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
-                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
-                <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Auszeichnung.svg" alt=""> mit
-                  Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <span>400,00€ <del>500,00€</del><sub>/einmalig</sub> </span>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
+          <div class="imgItem">
+            <img src="assets/images/Grids-frame/Frame 1.png" alt="" style=" height: 11em;
+            width: 15em;">
+          </div>
+          <div class="main-seminar__listItemContent">
+            <div>
+              <span class="main-seminar__headingFontList">Das ultimative Online-Seminar für deinen beruflichen Erfolg.
+              </span>
+              <div>
+                <span class="main-seminar__nameTitle">Dennis Bauer</span>
               </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
+            </div>
+            <div class="main-seminar__spacehandling" style="font-weight: 100;font-size:small; ">Lorem ipsum dolor sit
+              amet consectetur, adipisicing elit. Natus
+              fugit blanditiis nobis nemo, tenetur eaque nesciunt dolore illum aliquam, </div>
+            <div class="main-seminar__listItemsList">
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Video Playlist.svg" alt=""> 40
+                Lektionen</span>
+              <span> <img src="assets/images/icons/seminarPageIcon/goldenIcon/Group 89.svg" alt=""> mit Support</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Circle Play.svg" alt=""> 120
+                Stunden</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Update.svg" alt=""> 24 Monate</span>
+              <span><img src="assets/images/icons/seminarPageIcon/goldenIcon/Internet.svg" alt=""> Deutsch</span>
+
+            </div>
+            <div>
+              <span style="font-weight: 600;">500,00€<span style="font-weight: 100;font-size: x-small;">/einmalig</span>
+              </span>
+            </div>
+          </div>
         </div>
-        <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
-              </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
-              </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
-              </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
-        </div>
-        <div class="main-seminar__listItems">
-          <mat-card>
-            <mat-card-content>
-              <img src="assets/images/Grids-frame/Frame 1.png" alt="">
-              <span>Das ultimative Online-Seminar für deinen beruflichen Erfolg. </span>
-              <span>Dennis Bauer</span>
-              <div class="main-seminar__listItemsList">
-                <span>40 Lektionen</span>
-                <span>mit Support</span>
-                <span>120 Stunden</span>
-                <span>24 Monate</span>
-                <span>Deutsch</span>
-                <span>mit Zertifikat</span>
-              </div>
-              <legend>500,00$ /einmalig</legend>
-            </mat-card-content>
-          </mat-card>
-        </div>
+
+        
 
 
 
@@ -700,6 +898,6 @@
 
   </div>
 
-  
+
 
 </div>

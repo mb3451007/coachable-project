@@ -9,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class SeminarPageComponent implements OnInit{
   showHide:boolean=true;
   searchQuery: string = '';
+  showFilters:boolean=false;
   previousSearches: string[] = [];
+  isFocused = false;
+  results = ['Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname'];
 
   ngOnInit(): void {
     this.loadPreviousSearches();
+  }
+
+  showResults() {
+    this.isFocused = true;
+  }
+  hideResults() {
+    // Use a timeout to prevent the list from hiding before a click is registered on the list items
+    setTimeout(() => {
+      this.isFocused = false;
+    }, 200);
   }
 
   loadPreviousSearches(): void {
@@ -38,13 +51,21 @@ export class SeminarPageComponent implements OnInit{
   
 
   gridHide(){
-   this.showHide = true
+   this.showHide = false
   }
 
   listHide(){
-   this.showHide = false
+   this.showHide = true
   }
   openSearchBar() {
     throw new Error('Method not implemented.');
   }  
+
+  showFilter(){
+    this.showFilters = true;
+
+  }
+  hideFilter(){
+    this.showFilters = false
+  }
 }

@@ -26,23 +26,7 @@ export class MainHeaderComponent implements AfterViewInit, OnDestroy {
 openLogin(){
   this.login.loginHere
 }
-  // openDialogSingUp(e: Event){
-  //   e.preventDefault()
-  //   e.stopPropagation()
-  //   this.dialog.open(RegistrationComponent,{
-  //     width: '250px',
-  //     autoFocus: false
-  //   })
-  // }
-  // openDialogLogin(e: Event){
-  //   e.preventDefault()
-  //   e.stopPropagation()
-  //   this.dialog.open(LoginComponent,{
-  //     width:'250px',
-  //     autoFocus: false
-
-  //   })
-  // }
+  
   
   ngAfterViewInit() {
     this.showSearchButton = location.pathname.length > 1 && !location.pathname.includes('search');
