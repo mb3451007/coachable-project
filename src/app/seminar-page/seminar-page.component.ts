@@ -4,18 +4,29 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-seminar-page',
   templateUrl: './seminar-page.component.html',
-  styleUrls: ['./seminar-page.component.scss']
+  styleUrls: ['./seminar-page.component.scss'],
 })
-export class SeminarPageComponent implements OnInit{
-  showHide:boolean=true;
+export class SeminarPageComponent implements OnInit {
+  showHide: boolean = true;
   searchQuery: string = '';
-  showFilters:boolean=false;
+  showFilters: boolean = false;
   previousSearches: string[] = [];
   isFocused = false;
-  results = ['Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname', 'Vorname Nachname'];
+  results = [
+    'Vorname Nachname',
+    'Vorname Nachname',
+    'Vorname Nachname',
+    'Vorname Nachname',
+    'Vorname Nachname',
+    'Vorname Nachname',
+  ];
+  matCards: number[] = [];
 
   ngOnInit(): void {
     this.loadPreviousSearches();
+    for (let i = 0; i < 16; i++) {
+      this.matCards.push(i);
+    }
   }
 
   showResults() {
@@ -39,7 +50,10 @@ export class SeminarPageComponent implements OnInit{
     if (this.searchQuery.trim()) {
       this.previousSearches.unshift(this.searchQuery);
       this.previousSearches = this.previousSearches.slice(0, 3); // Limit to last 5 searches
-      localStorage.setItem('previousSearches', JSON.stringify(this.previousSearches));
+      localStorage.setItem(
+        'previousSearches',
+        JSON.stringify(this.previousSearches)
+      );
       this.searchQuery = '';
     }
   }
@@ -48,24 +62,21 @@ export class SeminarPageComponent implements OnInit{
     this.searchQuery = query;
   }
 
-  
-
-  gridHide(){
-   this.showHide = false
+  gridHide() {
+    this.showHide = false;
   }
 
-  listHide(){
-   this.showHide = true
+  listHide() {
+    this.showHide = true;
   }
   openSearchBar() {
     throw new Error('Method not implemented.');
-  }  
-
-  showFilter(){
-    this.showFilters = true;
-
   }
-  hideFilter(){
-    this.showFilters = false
+
+  showFilter() {
+    this.showFilters = true;
+  }
+  hideFilter() {
+    this.showFilters = false;
   }
 }

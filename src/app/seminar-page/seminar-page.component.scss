@@ -3,15 +3,38 @@
 @import "../core/styles/screen-sizes.scss";
 @import "../core/styles/border-radii";
 
-.red {
-  border: 1px solid red;
-  color: white;
+.mobile-view-listItem {
+  display: none;
 }
+
+.price-div {
+  padding-top: 10px !important;
+}
+
+.mobile-div-list-items-main {
+  div {
+    padding-top: 7px;
+  }
+}
+
+// .red {
+//   border: 1px solid red;
+//   color: white;
+// }
 
 .main-seminar {
   &__container {
     color: #ffffff;
     max-width: 1400px;
+  }
+
+  &__img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
+    }
   }
 
   &__searchArea {
@@ -26,30 +49,22 @@
   }
   &__searchBar {
     position: relative;
-    // width: 200px;
-    // margin: 0 auto;
     cursor: pointer;
     margin-left: 4rem;
     margin-right: 1rem;
     border-radius: 17px;
-  // border-top-left-radius: 17px;
-
     background-color: white;
     border: black;
     display: flex;
-    // overflow: hidden;
     img {
       padding-left: 8px;
       background-color: #ffffff;
-      // border-top-right-radius: 17px;
       border-radius: 17px;
     }
-    
   }
   &__suggestions {
     display: flex;
     justify-content: space-between;
-    // margin-left: 41px;
     overflow-x: auto;
     ul {
       display: flex;
@@ -61,10 +76,17 @@
       background-color: #1c1c1c;
       padding: 2px 12px;
       border-radius: 14px;
+      color: white;
     }
     ul li img {
       padding: 1px 2px 3px;
       cursor: pointer;
+    }
+  }
+  &__imgItem {
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
   &__inPut {
@@ -81,6 +103,9 @@
       margin-left: 8px;
     }
   }
+  &__show-menu-btn {
+    display: none;
+  }
 
   &__side {
     padding: 0.3rem 0.3rem;
@@ -94,6 +119,12 @@
     background: #121212;
     color: #ffffff;
     padding: 3%;
+  }
+  &__filter-drop-down {
+    display: none;
+  }
+  &__filter-close-btn {
+    display: none;
   }
   &__preissPanne {
     padding: 20px 0px 20px 0px;
@@ -142,16 +173,17 @@
     }
   }
   &__gridContainer {
-    // display: grid;
-    // grid-template-columns: 0.5fr 0.5fr 0.5fr;
-    // gap: 15px;
     background: #1c1c1c;
-    // justify-content: space-around;
     border-radius: 25px;
     padding: 15px;
   }
+  &__card-img-div {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
   &__gridItems {
-    
     border-radius: 25px;
     border: none;
     padding: 10px;
@@ -167,20 +199,19 @@
     color: #121212;
   }
 
-  &__headingFont{
+  &__headingFont {
     font-weight: 600;
     font-size: 15px;
   }
-  &__headingFontList{
+  &__headingFontList {
     font-weight: 600;
     font-size: 18px;
   }
-  &__spacehandling{
-    padding-bottom: .3rem;
-    
+  &__spacehandling {
+    padding-bottom: 0.3rem;
   }
-  &__nameTitle{
-    color:  #A8A8A8;
+  &__nameTitle {
+    color: #a8a8a8;
     font-weight: 100;
     font-size: small;
   }
@@ -189,36 +220,29 @@
 
   &__listContainer {
     display: grid;
-    grid-template-columns: 903px;
     background: #121212;
     justify-content: space-around;
     border-radius: 25px;
     padding: 15px;
   }
   &__listItems {
-    display: grid;
-  grid-template-columns: 1fr auto;
-  background-color: #1C1C1C;
-  border-radius: 25px;
-  border: none;
-  margin-bottom: 1rem;
-  padding: 1.5rem;
+    border-radius: 25px;
+    border: none;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
   }
-  &__listItemContent{
+  &__inner-div {
+    background-color: #1c1c1c;
+  }
+  &__listItemContent {
     padding-left: 1rem;
   }
 
   &__listItemsList {
-    display: grid;
-    grid-template-columns: .4fr .4fr 1fr;;
     justify-content: space-between;
     color: #121212;
   }
 }
-
-
-
-
 
 mat-slider {
   width: 90%;
@@ -301,13 +325,10 @@ mat-slider {
 
 .search-results li:hover {
   background-color: #f0f0f0;
-  img{
-  background-color: #f0f0f0;
-
+  img {
+    background-color: #f0f0f0;
   }
 }
-
-
 
 .leftBtn {
   border-top-left-radius: 7px;
@@ -317,7 +338,6 @@ mat-slider {
   height: 26px;
   background-color: #b3b3b3;
   margin: 2px;
-  // width: 90px;
   padding-top: 1px;
   padding-right: 18px;
 }
@@ -328,8 +348,6 @@ mat-slider {
   border-bottom-right-radius: 7px;
   height: 26px;
   background-color: #b3b3b3;
-  //   margin: 2px;
-  // width: 90px;
   padding-top: 1px;
   padding-right: 18px;
 }
@@ -410,7 +428,11 @@ mat-slider {
     left: 18rem;
   }
 }
-
+.fas {
+  position: absolute;
+  right: 3%;
+  display: inline !important;
+}
 
 @media screen and (max-width: $smartphone) {
   .main-seminar {
@@ -419,28 +441,61 @@ mat-slider {
       width: 40rem;
     }
     &__searchArea {
-      width: 92%;
+      width: 100%;
       padding: 30px;
       display: grid;
-      grid-template-columns:auto auto;
+      grid-template-columns: auto;
+      margin-left: .1rem;
     }
     &__searchBar {
-      margin: 0px;
-      margin-right: 4rem;
-      margin-bottom: .5rem;
+      width: 100%;
+      margin: 0rem;
+    }
+    &__main-drop-drown {
+      display: none;
+    }
+    &__filter-drop-down {
+      display: unset;
+      margin: 1rem !important;
     }
     &__side {
-   
-  
       display: grid;
       grid-template-columns: auto;
-      
     }
+    &__Option {
+      display: none;
+    }
+    &__bewertet {
+      display: none;
+    }
+    &__ergebnisse {
+      padding-top: 2rem;
+      margin-bottom: -3rem;
+      margin-left: 1rem;
+      span {
+        color: #a8a8a8;
+        font-weight: 500;
+      }
+    }
+
+    &__filter-close-btn {
+      display: flex;
+      justify-content: end;
+      button {
+        background-color: transparent;
+      }
+    }
+    &__hideShowIconBtn {
+      display: unset;
+      button {
+        background-color: transparent;
+      }
+    }
+
     &__gridContainer {
       display: none;
-      // display: grid;
-      // grid-template-columns: 0.5fr 0.5fr;
     }
+
     &__button {
       display: none;
     }
@@ -448,13 +503,36 @@ mat-slider {
       display: grid;
       grid-template-columns: auto;
     }
+
+    &__inner-div {
+      display: none !important;
+    }
+    &__toggle {
+      display: none;
+    }
+    &__show-menu-btn {
+      display: flex;
+      justify-content: space-between;
+      width: 309px;
+      margin-left: -2rem;
+    }
+
+    &__mobile-view-toggle-btn {
+      display: flex;
+      padding-top: 0.5rem;
+      justify-content: space-between;
+
+      div {
+        margin-left: 8px;
+      }
+    }
   }
 
   .hide-on-mobile {
     display: none !important;
   }
+
+  .mobile-view-listItem {
+    display: unset !important;
+  }
 }
-
-
-
-
