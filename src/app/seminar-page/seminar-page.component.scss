@@ -3,6 +3,11 @@
 @import "../core/styles/screen-sizes.scss";
 @import "../core/styles/border-radii";
 
+.red {
+  border: 1px solid red;
+  color: white;
+}
+
 .main-seminar {
   &__container {
     color: #ffffff;
@@ -137,19 +142,23 @@
     }
   }
   &__gridContainer {
-    display: grid;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr;
-    gap: 15px;
+    // display: grid;
+    // grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    // gap: 15px;
     background: #1c1c1c;
-    justify-content: space-around;
+    // justify-content: space-around;
     border-radius: 25px;
     padding: 15px;
   }
   &__gridItems {
-    background-color: #767676;
+    
     border-radius: 25px;
     border: none;
-    margin: 10px;
+    padding: 10px;
+    mat-card {
+      background-color: #767676;
+      height: 100%;
+    }
   }
   &__gridItemsList {
     display: grid;
@@ -431,14 +440,18 @@ mat-slider {
       display: none;
       // display: grid;
       // grid-template-columns: 0.5fr 0.5fr;
+    }
+    &__button {
+      display: none;
+    }
+    &__listContainer {
+      display: grid;
+      grid-template-columns: auto;
+    }
   }
-  &__button {
-    display: none;
-  }
-  &__listContainer {
-    display: grid;
-    grid-template-columns: auto;
-  }
+
+  .hide-on-mobile {
+    display: none !important;
   }
 }
 

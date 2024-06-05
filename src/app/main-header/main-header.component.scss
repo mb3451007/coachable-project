@@ -76,7 +76,7 @@
     border-radius: 2rem;
   }
   &__inPut {
-    max-width: 30%;
+    width: 30%;
   }
   &____flexBox {
     display: flex;
@@ -155,7 +155,7 @@
   .main-header {
     &__container {
       padding: 0.3rem 0.2rem;
-      width: 40rem;
+      // width: 40rem;
     }
 
     &__log-in {
@@ -168,6 +168,9 @@
 
     &__placeholder {
       display: block;
+    }
+    &__inPut {
+      width: 30%;
     }
     &__button {
       display: none;
