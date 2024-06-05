@@ -25,7 +25,6 @@
 .main-seminar {
   &__container {
     color: #ffffff;
-    max-width: 1400px;
   }
 
   &__img-div {
@@ -41,7 +40,7 @@
     display: grid;
     grid-template-columns: 1.7fr 1fr 0.6fr;
     background-color: #1c1c1c;
-    margin: 29px;
+    margin: 16px;
     justify-content: space-between;
     border-radius: 16px;
     align-items: center;
@@ -435,21 +434,26 @@ mat-slider {
 }
 
 @media screen and (max-width: $smartphone) {
+  #search-bar {
+    color: #000;
+    width: 100%;
+    border-radius: 17px;
+    box-sizing: border-box;
+    margin-right: 7rem;
+  }
   .main-seminar {
-    &__container {
-      padding: 0.3rem 0.2rem;
-      width: 40rem;
-    }
     &__searchArea {
-      width: 100%;
-      padding: 30px;
+      margin: 0;
       display: grid;
-      grid-template-columns: 4fr;
-      margin-left: .1rem;
+      grid-template-columns: auto;
+      padding-left: 0px;
+      padding-right: 10px;
+      justify-content: normal;
+      background-color: black;
     }
     &__searchBar {
-      width: 100%;
-      margin: 0rem;
+      margin: 0px;
+      margin-right: 0rem;
     }
     &__main-drop-drown {
       display: none;
@@ -513,14 +517,12 @@ mat-slider {
     &__show-menu-btn {
       display: flex;
       justify-content: space-between;
-      width: 309px;
       margin-left: -2rem;
     }
 
     &__mobile-view-toggle-btn {
       display: flex;
       padding-top: 0.5rem;
-      justify-content: space-between;
 
       div {
         margin-left: 8px;
