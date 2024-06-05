@@ -408,7 +408,7 @@ mat-slider {
     position: absolute;
     top: 1.9rem;
     left: 0;
-    width: 18.4rem;
+    width: 100%;
     background: white;
     display: none;
   }
@@ -444,7 +444,7 @@ mat-slider {
       width: 100%;
       padding: 30px;
       display: grid;
-      grid-template-columns: auto;
+      grid-template-columns: 4fr;
       margin-left: .1rem;
     }
     &__searchBar {
