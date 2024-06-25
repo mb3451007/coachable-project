@@ -1,6 +1,6 @@
 {
 "/api": {
-"target": "http://coachable-backend-env.eba-mtutg33x.eu-central-1.elasticbeanstalk.com:5000",
+"target": "http://ec2-35-158-211-56.eu-central-1.compute.amazonaws.com:5000",
 "secure": false,
 "changeOrigin": true
 }
