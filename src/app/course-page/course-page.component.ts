@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../core/models/course';
 import { environment } from 'src/environments/environment';
@@ -13,9 +13,13 @@ import { CourseContent } from '../core/models/course-content';
   styleUrls: ['./course-page.component.scss']
 })
 export class CoursePageComponent {
+  
+
+  panelOpenState = false;
   courseId = '';
   @Input() course: Course;
-
+  lists:string[]=["bala","bala bala","lorem bala","bala",];
+  courseLists:string[]=["Power-Query","Markos","Power-pivot","Excel","Power-Query","Markos","Power-pivot","Excel","Power-Query","Markos","Power-pivot","Excel"]
   coachUrl = "/coach/";
   courseUrl = "/course/";
   coaches: Observable<Coach[]>;
@@ -35,6 +39,31 @@ export class CoursePageComponent {
     this.getOtherCourses();
     this.getOtherCoaches();
   }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: Event) {
+    const rightSection = document.getElementById('rightSection');
+    if (rightSection) {
+        const rect = rightSection.getBoundingClientRect();
+        if (rect.top <= 0) {
+            rightSection.classList.add('fixed');
+        } else {
+            rightSection.classList.remove('fixed');
+        }
+
+        const courseDiv = document.getElementById('course-name')
+        if (courseDiv) {
+          const rect2 = courseDiv.getBoundingClientRect();
+            console.log ('top', rect2.top)
+            if (rect2.top > -23) {
+              rightSection.classList.remove('fixed');
+            }
+        }
+    }
+
+    
+
+}
 
   splitCourseContent() {
     const contents = this.course.tableOfContents.split('##');

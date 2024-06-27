@@ -40,7 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -68,7 +68,8 @@ import {MatMenuModule} from '@angular/material/menu';
     DataProtectionComponent,
     RegistrationComponent,
     LoginComponent,
-    SeminarPageComponent
+    SeminarPageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -88,7 +89,8 @@ import {MatMenuModule} from '@angular/material/menu';
     FontAwesomeModule,
     MatSliderModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule
 
 
   ],
